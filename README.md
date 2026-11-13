@@ -8,7 +8,7 @@ Static site, no build step. Deploy by serving this folder directly (e.g. `nginx`
 
 - `index.html` — trip hub: countdown, route map, to-do checklist, links
 - `itinerary.html` — day-by-day itinerary
-- `housing.html` — housing placeholders for HCMC and Hanoi (not booked yet)
+- `housing.html` — booked housing for HCMC and Hanoi, plus the arrival-night hotel
 - `css/style.css` — shared styles
 - `js/main.js` — countdown timer
 - `js/map.js` — Leaflet route map

@@ -589,6 +589,7 @@ h1,h2,h3{ font-family:var(--font-head); margin:0; color:var(--ink); font-weight:
   border-radius:20px;
   padding:2px 10px;
 }
+.tbd-badge.booked{ color:var(--teal); border-style:solid; border-color:var(--teal); }
 .field-list{ margin:0; padding-top:14px; border-top:2px dashed var(--ink); display:grid; gap:12px; }
 .field-list > div{ display:flex; gap:16px; align-items:baseline; }
 .field-list dt{
