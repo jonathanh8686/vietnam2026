@@ -2,9 +2,9 @@
  * show up as soon as you're online) with a 4s timeout, falling back to the
  * last saved copy. Fonts and Leaflet are served from cache when present.
  * Map tiles are not cached. */
-var CACHE = 'vn26-v1';
+var CACHE = 'vn26-v2';
 var CORE = [
-  './', 'index.html', 'itinerary.html', 'housing.html',
+  './', 'index.html', 'calendar.html', 'itinerary.html', 'housing.html',
   'css/style.css', 'js/app.js', 'data/trip.json', 'data/notion.json',
   'icon.svg', 'manifest.webmanifest'
 ];

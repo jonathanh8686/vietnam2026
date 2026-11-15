@@ -1,6 +1,6 @@
 {
  "source": "https://joycebean.notion.site/Vietnam-2026-352df3b899898097909df34eb478c732",
- "fetchedAt": "2026-11-15T07:13:31+00:00",
+ "fetchedAt": "2026-11-15T07:26:46+00:00",
  "todos": [
   {
    "text": [
@@ -149,6 +149,7 @@
    "id": "382df3b8-9989-803a-a1b9-f2db029b6180",
    "date": "2026-11-19",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "fly to Vietnam "
@@ -165,6 +166,7 @@
    "id": "38bdf3b8-9989-80ad-a49b-cb12ec31ce4e",
    "date": "2026-11-20",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "transit / arrive in ho chi minh"
@@ -181,6 +183,7 @@
    "id": "39cdf3b8-9989-80c9-be84-e2c63731d3c5",
    "date": "2026-11-20",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "check-in to hotel"
@@ -201,6 +204,7 @@
    "id": "382df3b8-9989-808f-8676-f55822b0511c",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "hcm - day 1 "
@@ -213,6 +217,7 @@
    "id": "382df3b8-9989-805b-997f-c45eada3c5ee",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "airbnb check-in"
@@ -229,6 +234,7 @@
    "id": "38bdf3b8-9989-8019-829b-c04dec95ed8c",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "daytime: Nguyen Hue Walking Street  & Cafe Apartments"
@@ -245,6 +251,7 @@
    "id": "400df3b8-9989-808b-8510-c2c1a2f2b55f",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "andrew arrives 1pm"
@@ -257,6 +264,7 @@
    "id": "38bdf3b8-9989-80ac-9e56-f73677448019",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "nighttime: go out / bar hopping"
@@ -273,6 +281,7 @@
    "id": "3bcdf3b8-9989-80db-8fc5-d35918ba32c8",
    "date": "2026-11-21",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "peter and olivia arrive @ 11pm "
@@ -285,6 +294,7 @@
    "id": "382df3b8-9989-8041-826c-fbd7160d1fa1",
    "date": "2026-11-22",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "hcm - day 2"
@@ -297,6 +307,7 @@
    "id": "38bdf3b8-9989-809a-a29d-ecf09ec79344",
    "date": "2026-11-22",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "sightseeing "
@@ -313,6 +324,7 @@
    "id": "38bdf3b8-9989-8077-84e6-dc54e1c2143b",
    "date": "2026-11-22",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "bar hopping"
@@ -325,6 +337,7 @@
    "id": "38bdf3b8-9989-80d0-ab1c-ec001a471391",
    "date": "2026-11-23",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "hcm day 3 "
@@ -341,6 +354,7 @@
    "id": "38bdf3b8-9989-8029-89ce-c5adb4f35551",
    "date": "2026-11-23",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "mekong delta day trip?"
@@ -361,6 +375,7 @@
    "id": "38bdf3b8-9989-804c-a5b2-e8d294deb9b3",
    "date": "2026-11-23",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "cheap michelin dinner?"
@@ -378,6 +393,7 @@
    "id": "3bcdf3b8-9989-80fa-9758-da956bc5d602",
    "date": "2026-11-24",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "airbnb check-out at 11am"
@@ -390,6 +406,7 @@
    "id": "38bdf3b8-9989-80cf-ad57-e830f98516ef",
    "date": "2026-11-24",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "SGN to HAN flight"
@@ -406,6 +423,7 @@
    "id": "38bdf3b8-9989-8092-846e-e451af3c667e",
    "date": "2026-11-24",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "check-in Hanoi Airbnb"
@@ -422,6 +440,7 @@
    "id": "38bdf3b8-9989-8000-b1e9-f48f20a0dfca",
    "date": "2026-11-24",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "sightseeing?"
@@ -438,6 +457,7 @@
    "id": "38bdf3b8-9989-80e6-919c-dec6960b8b08",
    "date": "2026-11-25",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "hanoi day 1 (old quarter) cultural sightseeing, cafes, street food dinner"
@@ -454,6 +474,7 @@
    "id": "38bdf3b8-9989-80bd-a1c7-e9d91909afce",
    "date": "2026-11-26",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "day trip to ninh binh"
@@ -470,6 +491,7 @@
    "id": "38bdf3b8-9989-8088-b6b8-c22a68baca0f",
    "date": "2026-11-26",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "traditional boat tour"
@@ -482,6 +504,7 @@
    "id": "38bdf3b8-9989-80da-9e94-efd2278d33e5",
    "date": "2026-11-26",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "explore Hang Mua (Mua Cave) / rice paddies"
@@ -494,6 +517,7 @@
    "id": "38bdf3b8-9989-80a2-9c7d-dc44c9f19361",
    "date": "2026-11-27",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "hanoi day 2: french quarter, West Lake, & Modern Hanoi"
@@ -510,6 +534,7 @@
    "id": "3bcdf3b8-9989-8070-a56d-f706468d1c9e",
    "date": "2026-11-28",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "airbnb check-out @ 11am"
@@ -522,6 +547,7 @@
    "id": "38bdf3b8-9989-808d-ab62-c13b57ad8de5",
    "date": "2026-11-28",
    "time": null,
+   "endTime": null,
    "name": [
     {
      "t": "departure"

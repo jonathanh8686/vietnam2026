@@ -99,11 +99,54 @@
     ['fly', /\bfl(y|ight)\b|departure/i, 'Flight'],
     ['arrive', /arriv|transit/i, 'Arrival']
   ];
-  function parseTime(text) {
-    var m = /\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b/i.exec(text);
-    if (!m) return null;
-    var hr = +m[1] % 12 + (m[3].toLowerCase() === 'pm' ? 12 : 0);
-    return hr * 60 + (+m[2] || 0);
+  // Times are minutes after midnight (Vietnam time) of the day they're listed on.
+  var TIME_RE = /\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b/ig;
+  function parseTimes(text) {
+    var out = [], m;
+    TIME_RE.lastIndex = 0;
+    while ((m = TIME_RE.exec(text))) {
+      var mins = (+m[1] % 12 + (m[3].toLowerCase() === 'pm' ? 12 : 0)) * 60 + (+m[2] || 0);
+      out.push({ mins: mins, index: m.index, end: TIME_RE.lastIndex });
+    }
+    return out;
+  }
+  function parseTime(text) { var t = parseTimes(text); return t.length ? t[0].mins : null; }
+  function hhmm(v) { var p = /^(\d{1,2}):(\d{2})/.exec(v || ''); return p ? +p[1] * 60 + +p[2] : null; }
+
+  // Rough windows for items with no clock time. First match wins, so the
+  // explicit "daytime:/nighttime:" prefixes Joyce uses beat activity words.
+  var BANDS = [
+    [/^\s*(nighttime|night|tonight)\b/i, 21 * 60, 25 * 60, 'night'],
+    [/^\s*(daytime|day)\b/i, 10 * 60, 17 * 60, 'daytime'],
+    [/^\s*(morning)\b/i, 8 * 60, 11 * 60, 'morning'],
+    [/\bday trip\b/i, 7 * 60, 18 * 60, 'all day'],
+    [/\bleave early|early morning|sunrise\b/i, 6 * 60, 9 * 60, 'early'],
+    [/\b(bar|bars|nightlife|go out|club|clubs|night market)\b/i, 21 * 60, 25 * 60, 'night'],
+    [/\b(sightseeing|museum|market|temple|pagoda|cathedral|boat|cave|tour|explore|walking|cafes?|boutiques?|shops?|tunnels?|lake|post office|opera)\b/i, 10 * 60, 17 * 60, 'daytime'],
+    [/\b(dinner|michelin|street food)\b/i, 18 * 60, 20.5 * 60, 'evening'],
+    [/\b(lunch)\b/i, 11.5 * 60, 13.5 * 60, 'lunch'],
+    [/\b(breakfast|brunch|egg coffee)\b/i, 8 * 60, 10.5 * 60, 'morning'],
+    [/\bafternoon\b/i, 13 * 60, 17 * 60, 'afternoon']
+  ];
+  function timing(row, kind, nameText, notesText) {
+    var start = hhmm(row.time);
+    if (start != null) {
+      var e = hhmm(row.endTime);
+      return { start: start, end: e != null && e > start ? e : start + 60, exact: true };
+    }
+    var all = nameText + ' ' + notesText;
+    var ts = parseTimes(all);
+    if (ts.length) {
+      var s0 = ts[0].mins;
+      if (s0 < 5 * 60 && kind !== 'fly' && kind !== 'checkout') s0 += 24 * 60; // "1am" means after midnight
+      var between = ts[1] ? all.slice(ts[0].end, ts[1].index) : '';
+      var isRange = ts[1] && ts[1].mins > ts[0].mins && (/^\s*(-|–|—|to|→|>)\s*$/i.test(between) || kind === 'fly');
+      return { start: s0, end: isRange ? ts[1].mins : s0 + 60, exact: true };
+    }
+    for (var i = 0; i < BANDS.length; i++) {
+      if (BANDS[i][0].test(i < 3 ? nameText : all)) return { start: BANDS[i][1], end: BANDS[i][2], exact: false, band: BANDS[i][3] };
+    }
+    return null;
   }
   function toItem(row) {
     var name = (row.name || []).map(function (s) { return Object.assign({}, s); });
@@ -119,6 +162,7 @@
     return {
       name: name, notes: notes, kind: kind, label: label,
       time: parseTime(all),
+      when: timing(row, kind, nameText, plain(notes)),
       maybe: /\?|\btbd\b/i.test(nameText),
       done: !!row.checked
     };
@@ -145,6 +189,7 @@
     var now = nowDate();
     var today = dateIn(trip.tz, now);
     var departLocal = new Date(+trip.start.slice(0, 4), +trip.start.slice(5, 7) - 1, +trip.start.slice(8, 10));
+    if (trip.departAt) departLocal = new Date(trip.departAt); // actual first wheels-up
     if (params.get('date')) departLocal = new Date(trip.start + 'T00:00:00+07:00');
     var phase = now < departLocal ? 'before' : today > trip.end ? 'after' : 'during';
     var dayIndex = Math.min(Math.max(daysBetween(trip.start, today), 0), trip.days.length - 1);
@@ -241,6 +286,7 @@
       p.logistics.length ? h('ul', { class: 'plan-list logistics' }, p.logistics.map(itemNode)) : null,
       p.plans.length ? h('ul', { class: 'plan-list' }, p.plans.map(itemNode)) : null,
       !p.logistics.length && !p.plans.length ? h('p', { class: 'muted' }, 'Nothing planned in Notion yet.') : null,
+      opts.compact ? null : h('a', { class: 'hours-link', href: 'calendar.html#' + day.date }, 'Hour by hour →'),
       stay ? h('p', { class: 'day-sleep' },
         h('span', { class: 'logi-tag' }, 'Sleep'),
         h('span', null, stay.name + ' · ', h('a', { href: mapsUrl(stay), target: '_blank', rel: 'noopener' }, stay.address + ' ↗'))) : null);
@@ -458,6 +504,161 @@
     }
   }
 
+  // ---------- hour-by-hour calendar ----------
+  function fmtClock(mins) {
+    var m = ((Math.round(mins) % 1440) + 1440) % 1440, hr = Math.floor(m / 60), mm = m % 60;
+    return (hr % 12 || 12) + (mm ? ':' + (mm < 10 ? '0' : '') + mm : '') + (hr < 12 ? 'am' : 'pm');
+  }
+  function fmtRange(ev) {
+    if (!ev.exact) return '~ ' + (ev.band || 'roughly');
+    if (!ev.ranged) return fmtClock(ev.start);
+    var a = fmtClock(ev.start), b = fmtClock(ev.end);
+    if (a.slice(-2) === b.slice(-2)) a = a.slice(0, -2);
+    return a + '–' + b;
+  }
+  function vnMinutesNow() {
+    var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var hh = 0, mm = 0;
+    parts.forEach(function (p) { if (p.type === 'hour') hh = +p.value % 24; if (p.type === 'minute') mm = +p.value; });
+    return hh * 60 + mm;
+  }
+  function eventsFor(m, day) {
+    var p = m.plans[day.date] || { logistics: [], plans: [] };
+    var timed = [], anytime = [];
+    p.logistics.concat(p.plans).forEach(function (it) {
+      var w = it.when;
+      if (!w) { anytime.push(it); return; }
+      timed.push({ item: it, start: w.start, end: w.end, exact: w.exact, band: w.band, ranged: w.end - w.start > 60 && w.exact });
+    });
+    (day.events || []).forEach(function (e) {
+      var s = hhmm(e.time), en = hhmm(e.end);
+      timed.push({
+        item: { name: [{ t: e.label }], notes: e.note ? [{ t: e.note }] : [], kind: e.kind || null, label: null, maybe: false, curated: true },
+        start: s, end: en != null ? en : s + 60, exact: !e.fuzzy, band: e.fuzzy ? 'about ' + fmtClock(s) : null, ranged: en != null
+      });
+    });
+    timed.sort(function (a, b) { return a.start - b.start || (b.end - b.start) - (a.end - a.start); });
+    // Side-by-side columns for overlapping blocks.
+    var clusters = [], cur = null;
+    timed.forEach(function (ev) {
+      if (!cur || ev.start >= cur.end) { cur = { end: ev.end, cols: [], items: [] }; clusters.push(cur); }
+      cur.end = Math.max(cur.end, ev.end);
+      var c = 0;
+      while (cur.cols[c] != null && cur.cols[c] > ev.start) c++;
+      cur.cols[c] = ev.end; ev.col = c; cur.items.push(ev);
+    });
+    clusters.forEach(function (cl) { cl.items.forEach(function (ev) { ev.ncols = cl.cols.length; }); });
+    return { timed: timed, anytime: anytime };
+  }
+
+  function renderCalendar(m) {
+    var trip = m.trip;
+    var strip = document.getElementById('cal-strip'), view = document.getElementById('cal-view');
+    if (!strip || !view) return;
+    var PX = 1.2; // px per minute
+    var nowTimer;
+
+    function pick() {
+      var hash = location.hash.slice(1);
+      for (var i = 0; i < trip.days.length; i++) if (trip.days[i].date === hash) return i;
+      return m.phase === 'during' ? m.dayIndex : 0;
+    }
+
+    function draw() {
+      var i = pick(), day = trip.days[i];
+      var isToday = m.phase === 'during' && day.date === m.today;
+      var ev = eventsFor(m, day);
+      var stay = stayFor(trip, day.date);
+
+      strip.textContent = '';
+      trip.days.forEach(function (d, j) {
+        strip.appendChild(h('a', {
+          class: 'cal-chip ' + d.place + (j === i ? ' is-selected' : '') + (m.phase === 'during' && d.date === m.today ? ' is-today' : ''),
+          href: '#' + d.date, 'aria-current': j === i ? 'date' : null
+        }, h('span', { class: 'cal-chip-wd' }, weekday(d.date)), h('span', { class: 'cal-chip-d' }, String(parseISO(d.date).getUTCDate()))));
+      });
+      var sel = strip.querySelector('.is-selected');
+      if (sel && sel.scrollIntoView) sel.scrollIntoView({ block: 'nearest', inline: 'center' });
+
+      var lo = 6 * 60, hi = 24 * 60;
+      ev.timed.forEach(function (e) { lo = Math.min(lo, e.start); hi = Math.max(hi, e.end); });
+      lo = Math.floor(lo / 60) * 60; hi = Math.min(Math.ceil(hi / 60) * 60, 30 * 60);
+
+      var grid = h('div', { class: 'cal-grid', style: 'height:' + (hi - lo) * PX + 'px' });
+      for (var t = lo; t <= hi; t += 60) {
+        grid.appendChild(h('div', { class: 'cal-hour' + (t % 1440 === 0 ? ' midnight' : ''), style: 'top:' + (t - lo) * PX + 'px' },
+          h('span', null, t % 1440 === 0 ? 'midnight' : fmtClock(t))));
+      }
+      var lane = h('div', { class: 'cal-lane' });
+      grid.appendChild(lane);
+      ev.timed.forEach(function (e) {
+        var it = e.item, height = Math.max((e.end - e.start) * PX, 44);
+        var block = h('button', {
+          type: 'button',
+          class: 'cal-ev' + (e.exact ? ' exact' : ' fuzzy') + (it.kind ? ' logi-' + it.kind : '') + (it.maybe ? ' maybe' : '') + (it.curated ? ' curated' : '') + (height < 56 ? ' short' : ''),
+          style: 'top:' + (e.start - lo) * PX + 'px;height:' + height + 'px;left:calc(' + (100 * e.col / e.ncols) + '% + 2px);width:calc(' + (100 / e.ncols) + '% - 4px)',
+          'aria-expanded': 'false',
+          onclick: function (evt) {
+            var b = evt.currentTarget, open = b.classList.toggle('open');
+            b.setAttribute('aria-expanded', open ? 'true' : 'false');
+          }
+        },
+          h('span', { class: 'cal-ev-time' }, fmtRange(e)),
+          h('span', { class: 'cal-ev-name' }, segsNodes(it.name, { capitalize: true }), it.maybe ? h('span', { class: 'maybe-tag' }, 'maybe') : null),
+          plain(it.notes) ? h('span', { class: 'cal-ev-notes' }, segsNodes(it.notes)) : null);
+        lane.appendChild(block);
+      });
+
+      var nowLine = isToday ? h('div', { class: 'cal-now' }, h('span', null, 'now')) : null;
+      function placeNow() {
+        var n = vnMinutesNow();
+        if (n < lo && n + 1440 <= hi) n += 1440;
+        if (n < lo || n > hi) { nowLine.hidden = true; return; }
+        nowLine.hidden = false; nowLine.style.top = (n - lo) * PX + 'px';
+      }
+      if (nowLine) { grid.appendChild(nowLine); placeNow(); }
+      clearInterval(nowTimer);
+      if (nowLine) nowTimer = setInterval(placeNow, 60000);
+
+      var prev = trip.days[i - 1], next = trip.days[i + 1];
+      view.textContent = '';
+      append(view, [
+        h('div', { class: 'cal-head' },
+          prev ? h('a', { class: 'btn btn-quiet cal-nav', href: '#' + prev.date, 'aria-label': 'Previous day' }, '←') : h('span', { class: 'cal-nav' }),
+          h('div', { class: 'cal-title' },
+            h('div', { class: 'day-head' }, cityChip(trip, day.place, day.place === 'transit' ? (i === trip.days.length - 1 ? 'Departure' : 'In transit') : null),
+              isToday ? h('span', { class: 'stamp' }, 'Today') : null),
+            h('h2', null, 'Day ' + (i + 1) + ' · ' + weekday(day.date) + ' ' + fmtDay(day.date)),
+            h('p', { class: 'muted' }, day.title)),
+          next ? h('a', { class: 'btn btn-quiet cal-nav', href: '#' + next.date, 'aria-label': 'Next day' }, '→') : h('span', { class: 'cal-nav' })),
+        day.tip ? h('p', { class: 'day-tip' }, h('strong', null, 'Heads up: '), day.tip) : null,
+        ev.anytime.length ? h('div', { class: 'cal-anytime' },
+          h('span', { class: 'logi-tag' }, 'Anytime'),
+          h('ul', null, ev.anytime.map(function (it) {
+            return h('li', null, h('span', { class: 'plan-name' }, segsNodes(it.name, { capitalize: true })),
+              plain(it.notes) ? h('span', { class: 'plan-notes' }, segsNodes(it.notes)) : null);
+          }))) : null,
+        !ev.timed.length && !ev.anytime.length ? h('p', { class: 'muted' }, 'Nothing planned in Notion for this day yet.') : null,
+        ev.timed.length ? grid : null,
+        stay ? h('p', { class: 'day-sleep' }, h('span', { class: 'logi-tag' }, 'Sleep'),
+          h('span', null, stay.name + ' · ', h('a', { href: mapsUrl(stay), target: '_blank', rel: 'noopener' }, stay.address + ' ↗'))) : null
+      ]);
+      if (isToday && nowLine && !nowLine.hidden && !draw.scrolled) {
+        draw.scrolled = true;
+        setTimeout(function () { nowLine.scrollIntoView({ block: 'center' }); }, 50);
+      }
+    }
+
+    window.addEventListener('hashchange', draw);
+    document.addEventListener('keydown', function (e) {
+      if (e.target.closest && e.target.closest('input,textarea')) return;
+      var i = pick();
+      if (e.key === 'ArrowLeft' && i > 0) location.hash = trip.days[i - 1].date;
+      if (e.key === 'ArrowRight' && i < trip.days.length - 1) location.hash = trip.days[i + 1].date;
+    });
+    draw();
+  }
+
   function renderStays(m) {
     var el = document.getElementById('stays');
     if (!el) return;
@@ -480,6 +681,7 @@
     if (page === 'hub') { renderStatus(m); renderToday(m); renderTodos(m); renderMap(m); }
     if (page === 'itinerary') renderItinerary(m);
     if (page === 'stays') renderStays(m);
+    if (page === 'calendar') renderCalendar(m);
   }).catch(fail);
 
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {

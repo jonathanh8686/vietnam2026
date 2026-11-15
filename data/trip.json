@@ -7,36 +7,159 @@
  "end": "2026-11-28",
  "notionUrl": "https://joycebean.notion.site/Vietnam-2026-352df3b899898097909df34eb478c732",
  "people": [
-  { "name": "Olivia", "from": "SF" },
-  { "name": "Peter", "from": "SF" },
-  { "name": "Andrew", "from": "NYC" },
-  { "name": "Joyce", "from": "BOS" },
-  { "name": "Jonathan", "from": "CHI" }
+  {
+   "name": "Olivia",
+   "from": "SF"
+  },
+  {
+   "name": "Peter",
+   "from": "SF"
+  },
+  {
+   "name": "Andrew",
+   "from": "NYC"
+  },
+  {
+   "name": "Joyce",
+   "from": "BOS"
+  },
+  {
+   "name": "Jonathan",
+   "from": "CHI"
+  }
  ],
  "places": {
-  "hcm": { "name": "Ho Chi Minh City", "short": "HCMC", "lat": 10.7769, "lng": 106.7009, "dates": "Nov 20–24", "blurb": "nightlife & sightseeing" },
-  "hanoi": { "name": "Hanoi", "short": "Hanoi", "lat": 21.0278, "lng": 105.8342, "dates": "Nov 24–28", "blurb": "Old Quarter & egg coffee" },
-  "ninhbinh": { "name": "Ninh Binh", "short": "Ninh Binh", "lat": 20.2506, "lng": 105.9744, "dates": "Nov 26", "blurb": "day trip from Hanoi · rice paddies & boats" },
-  "transit": { "name": "In transit", "short": "Transit" }
+  "hcm": {
+   "name": "Ho Chi Minh City",
+   "short": "HCMC",
+   "lat": 10.7769,
+   "lng": 106.7009,
+   "dates": "Nov 20–24",
+   "blurb": "nightlife & sightseeing"
+  },
+  "hanoi": {
+   "name": "Hanoi",
+   "short": "Hanoi",
+   "lat": 21.0278,
+   "lng": 105.8342,
+   "dates": "Nov 24–28",
+   "blurb": "Old Quarter & egg coffee"
+  },
+  "ninhbinh": {
+   "name": "Ninh Binh",
+   "short": "Ninh Binh",
+   "lat": 20.2506,
+   "lng": 105.9744,
+   "dates": "Nov 26",
+   "blurb": "day trip from Hanoi · rice paddies & boats"
+  },
+  "transit": {
+   "name": "In transit",
+   "short": "Transit"
+  }
  },
  "route": [
-  { "from": "hcm", "to": "hanoi", "kind": "main" },
-  { "from": "hanoi", "to": "ninhbinh", "kind": "daytrip" }
+  {
+   "from": "hcm",
+   "to": "hanoi",
+   "kind": "main"
+  },
+  {
+   "from": "hanoi",
+   "to": "ninhbinh",
+   "kind": "daytrip"
+  }
  ],
  "days": [
-  { "date": "2026-11-19", "place": "transit", "title": "Fly to Vietnam" },
-  { "date": "2026-11-20", "place": "hcm", "title": "Land in Saigon" },
-  { "date": "2026-11-21", "place": "hcm", "title": "HCMC day 1 — everyone lands" },
-  { "date": "2026-11-22", "place": "hcm", "title": "HCMC day 2" },
-  { "date": "2026-11-23", "place": "hcm", "title": "HCMC day 3" },
-  { "date": "2026-11-24", "place": "hanoi", "title": "Fly HCMC → Hanoi",
-    "tip": "Check-out 11am, VJ166 boards around noon — head to SGN by about 10:15am (suggested)." },
-  { "date": "2026-11-25", "place": "hanoi", "title": "Hanoi day 1 — Old Quarter" },
-  { "date": "2026-11-26", "place": "ninhbinh", "title": "Day trip to Ninh Binh",
-    "tip": "Transport to Ninh Binh isn't decided yet (tour, driver or train)." },
-  { "date": "2026-11-27", "place": "hanoi", "title": "Hanoi day 2 — French Quarter & West Lake" },
-  { "date": "2026-11-28", "place": "transit", "title": "Head home",
-    "tip": "Joyce + Jonathan's 7:35am international flight means leaving the Airbnb by about 4:45am (suggested)." }
+  {
+   "date": "2026-11-19",
+   "place": "transit",
+   "title": "Fly to Vietnam"
+  },
+  {
+   "date": "2026-11-20",
+   "place": "hcm",
+   "title": "Land in Saigon",
+   "tip": "Jonathan's KE479 from Seoul now lands at 11:50pm (it moved from 11:20pm), so expect to reach the hotel around 1am.",
+   "events": [
+    {
+     "time": "23:50",
+     "label": "Jonathan lands at SGN (KE479)",
+     "kind": "arrive"
+    },
+    {
+     "time": "25:00",
+     "end": "25:30",
+     "label": "Reach Summer Apartment Hotel",
+     "note": "about",
+     "kind": "checkin",
+     "fuzzy": true
+    }
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "place": "hcm",
+   "title": "HCMC day 1 — everyone lands"
+  },
+  {
+   "date": "2026-11-22",
+   "place": "hcm",
+   "title": "HCMC day 2"
+  },
+  {
+   "date": "2026-11-23",
+   "place": "hcm",
+   "title": "HCMC day 3"
+  },
+  {
+   "date": "2026-11-24",
+   "place": "hanoi",
+   "title": "Fly HCMC → Hanoi",
+   "tip": "Check-out 11am, VJ166 boards around noon — head to SGN by about 10:15am (suggested).",
+   "events": [
+    {
+     "time": "10:15",
+     "end": "10:50",
+     "label": "Head to SGN airport",
+     "note": "suggested",
+     "kind": "fly",
+     "fuzzy": true
+    }
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "place": "hanoi",
+   "title": "Hanoi day 1 — Old Quarter"
+  },
+  {
+   "date": "2026-11-26",
+   "place": "ninhbinh",
+   "title": "Day trip to Ninh Binh",
+   "tip": "Transport to Ninh Binh isn't decided yet (tour, driver or train)."
+  },
+  {
+   "date": "2026-11-27",
+   "place": "hanoi",
+   "title": "Hanoi day 2 — French Quarter & West Lake"
+  },
+  {
+   "date": "2026-11-28",
+   "place": "transit",
+   "title": "Leave Vietnam",
+   "tip": "Joyce + Jonathan: VJ940 Hanoi → Taipei leaves at 7:35am, so leave the Airbnb by about 4:45am (suggested).",
+   "events": [
+    {
+     "time": "04:45",
+     "end": "05:30",
+     "label": "Leave the Airbnb for HAN airport",
+     "note": "suggested · Joyce + Jonathan",
+     "kind": "fly",
+     "fuzzy": true
+    }
+   ]
+  }
  ],
  "stays": [
   {
@@ -45,10 +168,12 @@
    "name": "Summer Apartment Hotel",
    "address": "62 Đường Hồng Hà 6, Ho Chi Minh City",
    "mapsQuery": "Summer Apartment Hotel, 62 Hồng Hà, Ho Chi Minh City",
-   "checkIn": "2026-11-20", "checkInTime": "from 2pm",
-   "checkOut": "2026-11-21", "checkOutTime": "by 12pm",
+   "checkIn": "2026-11-20",
+   "checkInTime": "from 2pm",
+   "checkOut": "2026-11-21",
+   "checkOutTime": "by 12pm",
    "who": "Joyce + Jonathan",
-   "note": "Landing 11:30pm, so this is a late check-in."
+   "note": "Landing 11:50pm, so arrival is around 1am. Let the hotel know it's a late check-in."
   },
   {
    "id": "hcm-airbnb",
@@ -56,8 +181,10 @@
    "name": "HCMC Airbnb",
    "address": "Đường Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh",
    "mapsQuery": "Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh",
-   "checkIn": "2026-11-21", "checkInTime": "from 3pm",
-   "checkOut": "2026-11-24", "checkOutTime": "by 11am",
+   "checkIn": "2026-11-21",
+   "checkInTime": "from 3pm",
+   "checkOut": "2026-11-24",
+   "checkOutTime": "by 11am",
    "who": "Everyone",
    "note": "Only the street is listed. Get the house number and entry details from the Airbnb app."
   },
@@ -67,15 +194,21 @@
    "name": "Hanoi Airbnb",
    "address": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
    "mapsQuery": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
-   "checkIn": "2026-11-24", "checkInTime": "from 2pm",
-   "checkOut": "2026-11-28", "checkOutTime": "by 11am",
+   "checkIn": "2026-11-24",
+   "checkInTime": "from 2pm",
+   "checkOut": "2026-11-28",
+   "checkOutTime": "by 11am",
    "who": "Everyone",
    "note": "Entry details are in the Airbnb app."
   }
  ],
  "missing": [
+  "Joyce's flight to Saigon (if it isn't the same as Jonathan's)",
   "Flight numbers and return flights for Andrew, Peter and Olivia",
   "House number for the HCMC Airbnb",
   "How we're getting to Ninh Binh"
- ]
+ ],
+ "departAt": "2026-11-19T11:10:00-06:00",
+ "_departAt": "First wheels-up: Jonathan's KE038 from Chicago O'Hare. The countdown runs to this instant.",
+ "_events": "days[].events: suggested or derived times shown on the Hours page. time is HH:MM Vietnam time; values past 24:00 mean after midnight. fuzzy: true draws it as an estimate."
 }

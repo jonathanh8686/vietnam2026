@@ -218,8 +218,8 @@ class Exporter:
             for seg in S.blocks.get(rid, {}).get("properties", {}).get(date_key, []):
                 for f in seg[1] if len(seg) > 1 else []:
                     if f[0] == "d":
-                        return f[1].get("start_date", ""), f[1].get("start_time", "")
-            return "", ""
+                        return f[1].get("start_date", ""), f[1].get("start_time", ""), f[1].get("end_time", "")
+            return "", "", ""
 
         # Stable sort: keeps Notion's order within a day.
         rows = sorted(rows, key=lambda r: date_of(r)[0] or "~")
@@ -238,17 +238,19 @@ class Exporter:
                 if k == check_key:
                     cells.append("✓" if props.get(k, [["No"]])[0][0] == "Yes" else "")
                 elif k == date_key:
-                    cells.append(" ".join(x for x in date_of(rid) if x))
+                    d0, t0, t1 = date_of(rid)
+                    cells.append(" ".join(x for x in (d0, t0 and t0 + (f"–{t1}" if t1 else "")) if x))
                 else:
                     cells.append(to_md(segments(S, props.get(k))))
             lines.append("| " + " | ".join(c.replace("|", "\\|").replace("\n", " ") for c in cells) + " |")
             if "Notes" in by_name and date_key:
-                d, tm = date_of(rid)
+                d, tm, tm_end = date_of(rid)
                 if d:
                     self.itinerary.append({
                         "id": rid,
                         "date": d,
-                        "time": tm or None,
+                        "time": tm or None,  # set when the Notion Date field includes a time
+                        "endTime": tm_end or None,
                         "name": segments(S, props.get("title")),
                         "notes": segments(S, props.get(by_name["Notes"])),
                         "checked": bool(check_key) and props.get(check_key, [["No"]])[0][0] == "Yes",
