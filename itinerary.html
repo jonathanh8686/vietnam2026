@@ -3,170 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Itinerary — Vietnam 2026</title>
-<meta name="description" content="Day-by-day itinerary for Vietnam, November 19–28, 2026.">
+<title>Days — Vietnam '26</title>
+<meta name="description" content="Day-by-day plan for Vietnam, November 19–28, 2026.">
+<meta name="theme-color" content="#F7F0DE">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="itinerary">
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Site">
   <div class="wrap">
     <a class="nav-brand" href="index.html">VIETNAM <span class="flight-code">SGN&nbsp;→&nbsp;HAN&nbsp;'26</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">Trip Hub</a></li>
-      <li><a href="itinerary.html" aria-current="page">Itinerary</a></li>
-      <li><a href="housing.html">Housing</a></li>
+      <li><a href="index.html">Today</a></li>
+      <li><a href="itinerary.html" aria-current="page">Days</a></li>
+      <li><a href="housing.html">Stays</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="wrap" style="padding-top:56px; padding-bottom:8px;">
-  <p class="eyebrow">10 days · Nov 19–28, 2026</p>
-  <h1 style="font-size:clamp(2rem,4.5vw,3rem); font-weight:600; max-width:20ch;">The full itinerary</h1>
-  <p style="color:var(--ink-soft); max-width:60ch; margin-top:14px;">Ho Chi Minh City for nightlife and sightseeing, a day trip out to Ninh Binh's rice paddies, then Hanoi's Old Quarter to close it out. Flights and both Airbnbs are booked. Exact tours and the few "?" activities below are still open votes.</p>
+<main id="main">
+<header class="wrap page-head">
+  <p class="eyebrow">10 days · Nov 19–28 · Vietnam time</p>
+  <h1>Day by day</h1>
+  <p>Saigon for nightlife and sightseeing, then Hanoi's Old Quarter, with a day trip out to Ninh Binh's rice paddies. Plans come straight from the Notion itinerary, and items marked <span class="maybe-tag">maybe</span> are still open votes.</p>
+  <button id="jump-today" class="btn" type="button" hidden>Jump to today ↓</button>
 </header>
 
 <section class="wrap">
-  <div class="day-timeline">
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 1</div><div class="day-date">Nov 19</div></div>
-      <div class="day-stub-body">
-        <span class="day-city transit">In transit</span>
-        <h3>Fly to Vietnam</h3>
-        <p class="day-note">~20 hour travel time plus a 12-hour time difference — expect to land about 1.5 days after wheels-up.</p>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 2</div><div class="day-date">Nov 20</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hcm">Ho Chi Minh City</span>
-        <h3>Arrive &amp; check in</h3>
-        <ul>
-          <li>Transit / arrive in Ho Chi Minh City</li>
-          <li>Joyce + Jonathan arriving 11:30pm local time</li>
-          <li>Check in — Summer Apartment Hotel, 62 Đường Hồng Hà 6, HCMC</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 3</div><div class="day-date">Nov 21</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hcm">Ho Chi Minh City</span>
-        <h3>HCM — day 1</h3>
-        <ul>
-          <li>Andrew arrives ~1pm</li>
-          <li>Airbnb check-in from 3pm — Đường Lê Thị Hồng Gấm, Quận 1</li>
-          <li>Daytime: Nguyen Hue Walking Street &amp; Cafe Apartments</li>
-          <li>Chill sightseeing / cafes / walking around</li>
-          <li>Night: go out / bar hopping</li>
-          <li>Peter + Olivia arrive ~11pm</li>
-        </ul>
-        <p class="day-note">Gotta conquer jetlag on night 1.</p>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 4</div><div class="day-date">Nov 22</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hcm">Ho Chi Minh City</span>
-        <h3>HCM — day 2</h3>
-        <ul>
-          <li>War Remnants Museum, Saigon Central Post Office, Chinatown</li>
-          <li>Traditional medicine shops, Ba Thien Hau Temple</li>
-          <li>Cu Chi Tunnels? (tbd)</li>
-          <li>Bar hopping</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 5</div><div class="day-date">Nov 23</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hcm">Ho Chi Minh City</span>
-        <h3>HCM — day 3</h3>
-        <ul>
-          <li>Ben Thanh Market, boutiques / cafes</li>
-          <li>Mekong Delta day trip? — waterways, orchards, stilt villages, ~2hrs from HCM</li>
-          <li>Cheap Michelin-guide dinner?</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 6</div><div class="day-date">Nov 24</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hanoi">Hanoi</span>
-        <h3>Fly HCMC → Hanoi</h3>
-        <ul>
-          <li>HCMC Airbnb check-out by 11am</li>
-          <li>Flight SGN → HAN, VJ166 · 12:20pm – 2:30pm</li>
-          <li>Hanoi Airbnb check-in from 2pm — 3 Phố Hàng Cá, Hoàn Kiếm</li>
-          <li>Sightseeing? Hoan Kiem Lake (Sword Lake)</li>
-          <li>Egg coffee!!</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 7</div><div class="day-date">Nov 25</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hanoi">Hanoi</span>
-        <h3>Hanoi day 1 — Old Quarter</h3>
-        <ul>
-          <li>Cultural sightseeing, cafes, street food dinner</li>
-          <li>Temple of Literature, St. Joseph's Cathedral</li>
-          <li>Train Street, street food tour</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 8</div><div class="day-date">Nov 26</div></div>
-      <div class="day-stub-body">
-        <span class="day-city ninhbinh">Ninh Binh</span>
-        <h3>Day trip to Ninh Binh</h3>
-        <ul>
-          <li>~2-hour drive south — leave early</li>
-          <li>Traditional boat tour</li>
-          <li>Hang Mua (Mua Cave) &amp; rice paddies</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 9</div><div class="day-date">Nov 27</div></div>
-      <div class="day-stub-body">
-        <span class="day-city hanoi">Hanoi</span>
-        <h3>Hanoi day 2 — French Quarter &amp; West Lake</h3>
-        <ul>
-          <li>Hanoi Opera House</li>
-          <li>West Lake (Ho Tay) / Tran Quoc Pagoda</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="day-stub">
-      <div class="day-stub-date"><div class="day-num">Day 10</div><div class="day-date">Nov 28</div></div>
-      <div class="day-stub-body">
-        <span class="day-city transit">Departure</span>
-        <h3>Head home</h3>
-        <ul>
-          <li>Joyce + Jonathan: HAN 7:35am → Taipei (TPE) 11:10am</li>
-          <li>Hanoi Airbnb check-out by 11am</li>
-        </ul>
-        <p class="day-note">Safe travels back to SF, NYC, BOS &amp; CHI.</p>
-      </div>
-    </article>
-
-  </div>
+  <div class="day-timeline" id="days"></div>
 </section>
+<noscript><p class="wrap load-error">This site needs JavaScript to show the plans.</p></noscript>
+</main>
 
 <footer>
-  <div class="wrap">VIETNAM <span class="gold">2026</span> · HCMC → Ninh Binh → Hanoi · Nov 19–28</div>
+  <div class="wrap">
+    <p>VIETNAM <span class="gold">2026</span> · HCMC → Hanoi · Nov 19–28</p>
+    <p id="sync" class="sync"></p>
+  </div>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>

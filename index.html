@@ -3,51 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vietnam 2026 — Trip Hub</title>
-<meta name="description" content="Ho Chi Minh City → Ninh Binh → Hanoi, November 19–28, 2026.">
+<title>Vietnam '26 — Trip Hub</title>
+<meta name="description" content="Ho Chi Minh City → Hanoi, with a Ninh Binh day trip. November 19–28, 2026.">
+<meta name="theme-color" content="#F7F0DE">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
-<body>
+<body data-page="hub">
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Site">
   <div class="wrap">
     <a class="nav-brand" href="index.html">VIETNAM <span class="flight-code">SGN&nbsp;→&nbsp;HAN&nbsp;'26</span></a>
     <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Trip Hub</a></li>
-      <li><a href="itinerary.html">Itinerary</a></li>
-      <li><a href="housing.html">Housing</a></li>
+      <li><a href="index.html" aria-current="page">Today</a></li>
+      <li><a href="itinerary.html">Days</a></li>
+      <li><a href="housing.html">Stays</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="wrap" style="padding-top:56px;">
+<main id="main">
+<header class="wrap page-top">
   <div class="ticket">
     <div class="ticket-main">
-      <p class="ticket-route">SGN → HAN</p>
-      <h1>Ho Chi Minh City → Ninh Binh → Hanoi</h1>
+      <p class="ticket-route">HCMC → Hanoi · Ninh Binh day trip</p>
+      <h1>Vietnam <em>'26</em></h1>
 
       <div class="ticket-meta">
         <div>
           <span class="label">Depart</span>
-          <span class="value">Nov 19, 2026</span>
+          <span class="value">Nov 19</span>
         </div>
         <div>
-          <span class="label">Return</span>
-          <span class="value">Nov 28, 2026</span>
+          <span class="label">Home</span>
+          <span class="value">Nov 28</span>
         </div>
         <div>
-          <span class="label">Route</span>
-          <span class="value">HCMC · Ninh Binh · Hanoi</span>
+          <span class="label">Crew</span>
+          <span class="value">5</span>
         </div>
       </div>
 
-      <div class="countdown" id="countdown" aria-live="polite">
-        <div class="unit"><div class="num" id="cd-days">–</div><div class="unit-label">Days</div></div>
-        <div class="unit"><div class="num" id="cd-hours">–</div><div class="unit-label">Hours</div></div>
-        <div class="unit"><div class="num" id="cd-mins">–</div><div class="unit-label">Mins</div></div>
-        <div class="unit"><div class="num" id="cd-secs">–</div><div class="unit-label">Secs</div></div>
-      </div>
+      <div id="status" class="status"></div>
     </div>
 
     <div class="ticket-stub">
@@ -66,51 +69,31 @@
   </div>
 </header>
 
+<section class="wrap" id="today" aria-live="off"></section>
+
+<section class="wrap" id="todos"></section>
+
 <section class="wrap">
   <div class="section-head">
     <p class="eyebrow">The route</p>
+    <h2>Saigon to Hanoi</h2>
+    <p>Fly HCMC → Hanoi on Nov 24, with a day trip south to Ninh Binh on Nov 26.</p>
   </div>
   <div class="route-map">
-    <div id="trip-map" role="img" aria-label="Map of the trip route: Ho Chi Minh City, Ninh Binh, Hanoi"></div>
+    <div id="trip-map" role="img" aria-label="Map: Ho Chi Minh City, then Hanoi, with a day trip to Ninh Binh"></div>
   </div>
 </section>
-
-<section class="wrap">
-  <div class="section-head">
-    <p class="eyebrow">Before we go</p>
-    <h2>Trip to-dos</h2>
-  </div>
-  <ul class="checklist">
-    <li class="done"><span>Everyone confirm dates</span></li>
-    <li class="done"><span>Vote + decide on itinerary order</span></li>
-    <li class="done"><span>Book flights</span></li>
-    <li class="done"><span>Book HCMC → Hanoi flight (VJ166, ~$50)</span></li>
-    <li class="done"><span>Book Airbnb — Ho Chi Minh City</span></li>
-    <li class="done"><span>Book Airbnb — Hanoi</span></li>
-    <li><span>Apply for e-visa ($25) — <a href="https://evisa.gov.vn/">evisa.gov.vn</a></span></li>
-    <li><span>Research things to do — bars, tailoring, day trips, photoshoots, cafes</span></li>
-  </ul>
-</section>
-
-<section class="wrap">
-  <div class="card-grid">
-    <a class="link-card" href="itinerary.html">
-      <h3>Full itinerary</h3>
-      <p class="go">View itinerary →</p>
-    </a>
-    <a class="link-card" href="housing.html">
-      <h3>Housing</h3>
-      <p class="go">View housing →</p>
-    </a>
-  </div>
-</section>
+<noscript><p class="wrap load-error">This site needs JavaScript to show the plans.</p></noscript>
+</main>
 
 <footer>
-  <div class="wrap">VIETNAM <span class="gold">2026</span> · HCMC → Ninh Binh → Hanoi · Nov 19–28</div>
+  <div class="wrap">
+    <p>VIETNAM <span class="gold">2026</span> · HCMC → Hanoi · Nov 19–28</p>
+    <p id="sync" class="sync"></p>
+  </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js"></script>
-<script src="js/map.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

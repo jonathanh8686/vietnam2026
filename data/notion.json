@@ -1,0 +1,538 @@
+{
+ "source": "https://joycebean.notion.site/Vietnam-2026-352df3b899898097909df34eb478c732",
+ "fetchedAt": "2026-11-15T07:13:31+00:00",
+ "todos": [
+  {
+   "text": [
+    {
+     "t": "everyone to confirm dates "
+    }
+   ],
+   "done": true,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "vote + decide on itinerary"
+    }
+   ],
+   "done": true,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "decide on itinerary order"
+    }
+   ],
+   "done": true,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "book flights"
+    }
+   ],
+   "done": true,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "book airbnbs"
+    }
+   ],
+   "done": true,
+   "children": [
+    {
+     "text": [
+      {
+       "t": "hcm"
+      }
+     ],
+     "done": true,
+     "children": []
+    },
+    {
+     "text": [
+      {
+       "t": "hanoi"
+      }
+     ],
+     "done": true,
+     "children": []
+    }
+   ]
+  },
+  {
+   "text": [
+    {
+     "t": "book hcm > hanoi flight ($50)"
+    }
+   ],
+   "done": true,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "apply for visa",
+     "href": "https://evisa.gov.vn/"
+    },
+    {
+     "t": " ($25) "
+    }
+   ],
+   "done": false,
+   "children": []
+  },
+  {
+   "text": [
+    {
+     "t": "research things to do"
+    }
+   ],
+   "done": false,
+   "children": [
+    {
+     "text": [
+      {
+       "t": "bars + nightlife"
+      }
+     ],
+     "done": false,
+     "children": []
+    },
+    {
+     "text": [
+      {
+       "t": "custom clothing "
+      }
+     ],
+     "done": false,
+     "children": []
+    },
+    {
+     "text": [
+      {
+       "t": "day trips"
+      }
+     ],
+     "done": false,
+     "children": []
+    },
+    {
+     "text": [
+      {
+       "t": "photoshoots"
+      }
+     ],
+     "done": false,
+     "children": []
+    },
+    {
+     "text": [
+      {
+       "t": "cafes + restaurants"
+      }
+     ],
+     "done": false,
+     "children": []
+    }
+   ]
+  }
+ ],
+ "itinerary": [
+  {
+   "id": "382df3b8-9989-803a-a1b9-f2db029b6180",
+   "date": "2026-11-19",
+   "time": null,
+   "name": [
+    {
+     "t": "fly to Vietnam "
+    }
+   ],
+   "notes": [
+    {
+     "t": "20 hour travel time + 12 hr time diff so will arrive 1.5 days later"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80ad-a49b-cb12ec31ce4e",
+   "date": "2026-11-20",
+   "time": null,
+   "name": [
+    {
+     "t": "transit / arrive in ho chi minh"
+    }
+   ],
+   "notes": [
+    {
+     "t": "joyce + jonathan arriving 11:30pm local time"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "39cdf3b8-9989-80c9-be84-e2c63731d3c5",
+   "date": "2026-11-20",
+   "time": null,
+   "name": [
+    {
+     "t": "check-in to hotel"
+    }
+   ],
+   "notes": [
+    {
+     "t": "Summer Apartment Hotel \n",
+     "b": true
+    },
+    {
+     "t": "62 Đường Hồng Hà 6, 700000 Ho Chi Minh City, Vietnam"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "382df3b8-9989-808f-8676-f55822b0511c",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "hcm - day 1 "
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "382df3b8-9989-805b-997f-c45eada3c5ee",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "airbnb check-in"
+    }
+   ],
+   "notes": [
+    {
+     "t": "Đường Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh, 750000, Vietnam\ncheck-in avail at 3pm"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8019-829b-c04dec95ed8c",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "daytime: Nguyen Hue Walking Street  & Cafe Apartments"
+    }
+   ],
+   "notes": [
+    {
+     "t": "chill sightseeing / cafes / walking around "
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "400df3b8-9989-808b-8510-c2c1a2f2b55f",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "andrew arrives 1pm"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80ac-9e56-f73677448019",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "nighttime: go out / bar hopping"
+    }
+   ],
+   "notes": [
+    {
+     "t": "gotta conquer jetlag on night 1 🫵"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "3bcdf3b8-9989-80db-8fc5-d35918ba32c8",
+   "date": "2026-11-21",
+   "time": null,
+   "name": [
+    {
+     "t": "peter and olivia arrive @ 11pm "
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "382df3b8-9989-8041-826c-fbd7160d1fa1",
+   "date": "2026-11-22",
+   "time": null,
+   "name": [
+    {
+     "t": "hcm - day 2"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-809a-a29d-ecf09ec79344",
+   "date": "2026-11-22",
+   "time": null,
+   "name": [
+    {
+     "t": "sightseeing "
+    }
+   ],
+   "notes": [
+    {
+     "t": "war remnants museum, Saigon Central Post Office, Chinatown, traditional medicine shops, Ba Thien Hau Temple, cu chi tunnels?"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8077-84e6-dc54e1c2143b",
+   "date": "2026-11-22",
+   "time": null,
+   "name": [
+    {
+     "t": "bar hopping"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80d0-ab1c-ec001a471391",
+   "date": "2026-11-23",
+   "time": null,
+   "name": [
+    {
+     "t": "hcm day 3 "
+    }
+   ],
+   "notes": [
+    {
+     "t": "Ben Thanh Market, boutiques / cafes"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8029-89ce-c5adb4f35551",
+   "date": "2026-11-23",
+   "time": null,
+   "name": [
+    {
+     "t": "mekong delta day trip?"
+    }
+   ],
+   "notes": [
+    {
+     "t": "labyrinth of waterways, lush orchards, and stilt villages, located roughly two hours from hcm\n"
+    },
+    {
+     "t": "https://www.reddit.com/r/VietNam/comments/1fm36oe/mekong_delta_river_day_tour_worth_it_or_not/",
+     "href": "https://www.reddit.com/r/VietNam/comments/1fm36oe/mekong_delta_river_day_tour_worth_it_or_not/"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-804c-a5b2-e8d294deb9b3",
+   "date": "2026-11-23",
+   "time": null,
+   "name": [
+    {
+     "t": "cheap michelin dinner?"
+    }
+   ],
+   "notes": [
+    {
+     "t": "https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurants",
+     "href": "https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurants"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "3bcdf3b8-9989-80fa-9758-da956bc5d602",
+   "date": "2026-11-24",
+   "time": null,
+   "name": [
+    {
+     "t": "airbnb check-out at 11am"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80cf-ad57-e830f98516ef",
+   "date": "2026-11-24",
+   "time": null,
+   "name": [
+    {
+     "t": "SGN to HAN flight"
+    }
+   ],
+   "notes": [
+    {
+     "t": "12:20pm - 2:30pm | VJ166"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8092-846e-e451af3c667e",
+   "date": "2026-11-24",
+   "time": null,
+   "name": [
+    {
+     "t": "check-in Hanoi Airbnb"
+    }
+   ],
+   "notes": [
+    {
+     "t": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội, Vietnam\ncheck-in avail at 2pm"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8000-b1e9-f48f20a0dfca",
+   "date": "2026-11-24",
+   "time": null,
+   "name": [
+    {
+     "t": "sightseeing?"
+    }
+   ],
+   "notes": [
+    {
+     "t": "Ho Hoan Kiem (Sword Lake)\nEGG COFFEE!!! "
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80e6-919c-dec6960b8b08",
+   "date": "2026-11-25",
+   "time": null,
+   "name": [
+    {
+     "t": "hanoi day 1 (old quarter) cultural sightseeing, cafes, street food dinner"
+    }
+   ],
+   "notes": [
+    {
+     "t": "ancient Temple of Literature and St. Joseph's Cathedral, Train Street, street food tour"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80bd-a1c7-e9d91909afce",
+   "date": "2026-11-26",
+   "time": null,
+   "name": [
+    {
+     "t": "day trip to ninh binh"
+    }
+   ],
+   "notes": [
+    {
+     "t": "2-hour drive south, leave early "
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-8088-b6b8-c22a68baca0f",
+   "date": "2026-11-26",
+   "time": null,
+   "name": [
+    {
+     "t": "traditional boat tour"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80da-9e94-efd2278d33e5",
+   "date": "2026-11-26",
+   "time": null,
+   "name": [
+    {
+     "t": "explore Hang Mua (Mua Cave) / rice paddies"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-80a2-9c7d-dc44c9f19361",
+   "date": "2026-11-27",
+   "time": null,
+   "name": [
+    {
+     "t": "hanoi day 2: french quarter, West Lake, & Modern Hanoi"
+    }
+   ],
+   "notes": [
+    {
+     "t": "Hanoi Opera House, West Lake (Ho Tay) / ancient Tran Quoc Pagoda"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "3bcdf3b8-9989-8070-a56d-f706468d1c9e",
+   "date": "2026-11-28",
+   "time": null,
+   "name": [
+    {
+     "t": "airbnb check-out @ 11am"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
+   "id": "38bdf3b8-9989-808d-ab62-c13b57ad8de5",
+   "date": "2026-11-28",
+   "time": null,
+   "name": [
+    {
+     "t": "departure"
+    }
+   ],
+   "notes": [
+    {
+     "t": "Joyce + Jonathan\nHanoi (HAN) 7:35am → Taipei (TPE) 11:10am\n"
+    }
+   ],
+   "checked": false
+  }
+ ]
+}
