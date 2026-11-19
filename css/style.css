@@ -715,6 +715,23 @@ dialog.driver::backdrop{ background:rgba(28,25,18,0.7); }
   background:var(--paper);
   border-style:solid; border-color:var(--ink);
 }
+/* phone: long rough guesses as a slim vertical rail; tap to open full width */
+.cal-ev.rail:not(.open){
+  padding:6px 0;
+  align-items:center;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+}
+.cal-ev.rail:not(.open) .cal-ev-name, .cal-ev.rail:not(.open) .cal-ev-notes{ display:none; }
+.cal-ev.rail:not(.open) .cal-ev-time{ display:none; }
+.cal-ev.rail:not(.open)::after{
+  content:attr(data-label);
+  font-family:var(--font-mono); font-size:0.7rem; font-weight:600;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  color:var(--ink);
+}
+.cal-ev.rail.open{ writing-mode:horizontal-tb; transform:none; }
+.cal-ev.open{ opacity:1; }
 .cal-ev.open .cal-ev-notes{ display:block; }
 .cal-ev.open.logi-fly.exact{ background:var(--ink); }
 .cal-ev a{ color:var(--teal); font-weight:600; }

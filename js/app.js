@@ -538,17 +538,23 @@
       });
     });
     timed.sort(function (a, b) { return a.start - b.start || (b.end - b.start) - (a.end - a.start); });
-    // Side-by-side columns for overlapping blocks.
-    var clusters = [], cur = null;
-    timed.forEach(function (ev) {
+    return { timed: timed, anytime: anytime };
+  }
+  // Side-by-side columns for overlapping blocks. Sets ev.col / ev.ncols; returns the column count.
+  function layoutColumns(list) {
+    var clusters = [], cur = null, most = 0;
+    list.forEach(function (ev) {
       if (!cur || ev.start >= cur.end) { cur = { end: ev.end, cols: [], items: [] }; clusters.push(cur); }
       cur.end = Math.max(cur.end, ev.end);
       var c = 0;
       while (cur.cols[c] != null && cur.cols[c] > ev.start) c++;
       cur.cols[c] = ev.end; ev.col = c; cur.items.push(ev);
     });
-    clusters.forEach(function (cl) { cl.items.forEach(function (ev) { ev.ncols = cl.cols.length; }); });
-    return { timed: timed, anytime: anytime };
+    clusters.forEach(function (cl) {
+      most = Math.max(most, cl.cols.length);
+      cl.items.forEach(function (ev) { ev.ncols = cl.cols.length; });
+    });
+    return most;
   }
 
   function renderCalendar(m) {
@@ -589,14 +595,30 @@
         grid.appendChild(h('div', { class: 'cal-hour' + (t % 1440 === 0 ? ' midnight' : ''), style: 'top:' + (t - lo) * PX + 'px' },
           h('span', null, t % 1440 === 0 ? 'midnight' : fmtClock(t))));
       }
+      // On phones, long rough guesses ("daytime", "night", "day trip") become a slim rail on the
+      // left so the real, timed events keep most of the width instead of being squeezed into thirds.
+      var narrow = window.matchMedia('(max-width:640px)').matches;
+      var rail = [], main = [];
+      ev.timed.forEach(function (e) {
+        e.rail = narrow && !e.exact && e.end - e.start >= 180;
+        (e.rail ? rail : main).push(e);
+      });
+      var RAIL_W = 30, railCols = layoutColumns(rail);
+      rail.forEach(function (e) { e.ncols = 1; });
+      layoutColumns(main);
+      var railPx = railCols * RAIL_W;
       var lane = h('div', { class: 'cal-lane' });
       grid.appendChild(lane);
       ev.timed.forEach(function (e) {
         var it = e.item, height = Math.max((e.end - e.start) * PX, 44);
+        var pos = e.rail
+          ? 'left:' + (e.col * RAIL_W) + 'px;width:' + (RAIL_W - 4) + 'px'
+          : 'left:calc(' + railPx + 'px + (100% - ' + railPx + 'px) * ' + (e.col / e.ncols) + ' + 2px);width:calc((100% - ' + railPx + 'px) / ' + e.ncols + ' - 4px)';
         var block = h('button', {
           type: 'button',
-          class: 'cal-ev' + (e.exact ? ' exact' : ' fuzzy') + (it.kind ? ' logi-' + it.kind : '') + (it.maybe ? ' maybe' : '') + (it.curated ? ' curated' : '') + (height < 56 ? ' short' : ''),
-          style: 'top:' + (e.start - lo) * PX + 'px;height:' + height + 'px;left:calc(' + (100 * e.col / e.ncols) + '% + 2px);width:calc(' + (100 / e.ncols) + '% - 4px)',
+          class: 'cal-ev' + (e.exact ? ' exact' : ' fuzzy') + (e.rail ? ' rail' : '') + (it.kind ? ' logi-' + it.kind : '') + (it.maybe ? ' maybe' : '') + (it.curated ? ' curated' : '') + (height < 56 ? ' short' : ''),
+          style: 'top:' + (e.start - lo) * PX + 'px;height:' + height + 'px;' + pos,
+          'data-label': e.rail ? '~ ' + plain(it.name) : null,
           'aria-expanded': 'false',
           onclick: function (evt) {
             var b = evt.currentTarget, open = b.classList.toggle('open');
@@ -650,6 +672,8 @@
     }
 
     window.addEventListener('hashchange', draw);
+    var mq = window.matchMedia('(max-width:640px)');
+    if (mq.addEventListener) mq.addEventListener('change', draw);
     document.addEventListener('keydown', function (e) {
       if (e.target.closest && e.target.closest('input,textarea')) return;
       var i = pick();
