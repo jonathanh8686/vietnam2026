@@ -108,7 +108,7 @@
      "time": "08:45",
      "end": "09:20",
      "label": "Check out, sort the bags",
-     "note": "Plan A: drop bags at the Airbnb on the way. Plan B: the hotel holds them until ~1:45.",
+     "note": "Plan A: drop bags at the Airbnb on the way. Plan B: the hotel holds them until ~3pm.",
      "owner": "jonathan"
     },
     {
@@ -133,10 +133,10 @@
      "owner": "jonathan"
     },
     {
-     "time": "13:00",
-     "end": "15:00",
-     "label": "Plan B only: Jonathan gets the bags + meets Andrew",
-     "note": "Grab to the hotel, collect bags, meet Andrew at SGN T2 arrivals ~2pm, 7-seat GrabCar to the Airbnb.",
+     "time": "14:35",
+     "end": "15:30",
+     "label": "Plan B only: Jonathan's bag run",
+     "note": "After Huelley Rose: Grab to the hotel (~25 min), collect bags, Grab to the Airbnb (~30 min). Then straight out to Olivia Ng.",
      "owner": "jonathan",
      "fuzzy": true
     },
@@ -144,7 +144,7 @@
      "time": "15:30",
      "end": "17:00",
      "label": "Andrew rests",
-     "note": "Joyce and Jonathan leave at 3:30 for the 4pm Olivia Ng appointment.",
+     "note": "Andrew Grabs from SGN straight to the Airbnb (~3pm). Joyce and Jonathan leave by 3:30 for the 4pm Olivia Ng appointment.",
      "owner": "jonathan",
      "fuzzy": true
     },

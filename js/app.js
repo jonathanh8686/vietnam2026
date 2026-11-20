@@ -561,6 +561,24 @@
     return most;
   }
 
+  // Drop whatever doesn't fit in a block rather than clipping it mid-line:
+  // first the notes, then the title shrinks to one line, then time + title share a row.
+  function fitBlocks(lane) {
+    function run() {
+      lane.querySelectorAll('.cal-ev').forEach(function (b) {
+        b.classList.remove('notag', 'tight', 'tiny', 'micro');
+        if (b.classList.contains('open')) return;
+        var t = b.querySelector('.cal-ev-time');
+        if (t && t.scrollWidth > b.clientWidth - 16) b.classList.add('notag');
+        ['tight', 'tiny', 'micro'].forEach(function (c) {
+          if (b.scrollHeight > b.clientHeight + 1) b.classList.add(c);
+        });
+      });
+    }
+    requestAnimationFrame(run);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); // re-fit once web fonts change the metrics
+  }
+
   function renderCalendar(m) {
     var trip = m.trip;
     var strip = document.getElementById('cal-strip'), view = document.getElementById('cal-view');
@@ -627,6 +645,7 @@
           onclick: function (evt) {
             var b = evt.currentTarget, open = b.classList.toggle('open');
             b.setAttribute('aria-expanded', open ? 'true' : 'false');
+            fitBlocks(lane);
           }
         },
           h('span', { class: 'cal-ev-time' }, fmtRange(e),
@@ -671,6 +690,7 @@
         stay ? h('p', { class: 'day-sleep' }, h('span', { class: 'logi-tag' }, 'Sleep'),
           h('span', null, stay.name + ' · ', h('a', { href: mapsUrl(stay), target: '_blank', rel: 'noopener' }, stay.address + ' ↗'))) : null
       ]);
+      fitBlocks(lane);
       if (isToday && nowLine && !nowLine.hidden && !draw.scrolled) {
         draw.scrolled = true;
         setTimeout(function () { nowLine.scrollIntoView({ block: 'center' }); }, 50);

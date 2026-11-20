@@ -796,3 +796,13 @@ footer .gold{ color:var(--gold-bright); }
 }
 .cal-legend .src-tag{ margin-left:0; }
 .cal-legend a{ color:var(--teal); font-weight:600; }
+
+/* Blocks too small for everything: hide notes, then one-line title, then one row. */
+.cal-ev.tight .cal-ev-notes{ display:none; }
+.cal-ev.tiny .cal-ev-name{ -webkit-line-clamp:1; }
+.cal-ev.micro{ flex-direction:row; flex-wrap:nowrap; align-items:center; gap:6px; }
+.cal-ev.micro .cal-ev-time .src-tag{ display:none; }
+.cal-ev.micro .cal-ev-name{ display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+.cal-ev.open .cal-ev-notes{ display:block; }
+.cal-ev > *{ flex-shrink:0; max-width:100%; }
+.cal-ev.notag .src-tag{ display:none; }
