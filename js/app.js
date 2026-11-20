@@ -1,6 +1,6 @@
 /* Vietnam '26 — renders every page from two data files:
  *   data/trip.json     curated facts (stays, people, places, day titles)
- *   notion.json        plans + to-dos exported from Joyce's Notion page.
+ *   notion.json        plans exported from Joyce's Notion page.
  *                      data/live/notion.json is refreshed every few minutes on
  *                      the server; data/notion.json is the committed fallback.
  * Add ?date=2026-11-24 to any URL to preview the site as of that day.
@@ -405,35 +405,6 @@
     ]);
   }
 
-  function todoNode(t) {
-    return h('li', { class: t.done ? 'done' : null },
-      h('span', null, segsNodes(t.text, { capitalize: true })),
-      t.children && t.children.length ? h('ul', { class: 'checklist sub' }, t.children.map(todoNode)) : null);
-  }
-  function renderTodos(m) {
-    var el = document.getElementById('todos');
-    if (!el) return;
-    var todos = m.notion.todos || [];
-    if (m.phase !== 'before' || !todos.length) { el.hidden = true; return; }
-    var open = todos.filter(function (t) { return !t.done; });
-    var done = todos.filter(function (t) { return t.done; });
-    el.textContent = '';
-    append(el, [
-      h('div', { class: 'section-head' },
-        h('p', { class: 'eyebrow' }, 'Before we go'),
-        h('h2', null, open.length ? open.length + ' thing' + (open.length === 1 ? '' : 's') + ' left to do' : 'All set'),
-        h('p', null, 'Synced from the to-do list in Notion. Tick things off there.')),
-      open.length ? h('ul', { class: 'checklist' }, open.map(todoNode)) : null,
-      done.length ? h('details', { class: 'done-list' },
-        h('summary', null, done.length + ' done'),
-        h('ul', { class: 'checklist' }, done.map(todoNode))) : null,
-      m.trip.missing && m.trip.missing.length ? h('div', { class: 'missing' },
-        h('h3', null, 'Info the site is still missing'),
-        h('ul', null, m.trip.missing.map(function (x) { return h('li', null, x); })),
-        h('p', { class: 'muted' }, 'Add it to Notion and it’ll make its way here.')) : null
-    ]);
-  }
-
   function renderMap(m) {
     var el = document.getElementById('trip-map');
     if (!el) return;
@@ -702,7 +673,7 @@
     var m = model(res[0], res[1]);
     document.documentElement.setAttribute('data-phase', m.phase);
     syncLine(m);
-    if (page === 'hub') { renderStatus(m); renderToday(m); renderTodos(m); renderMap(m); }
+    if (page === 'hub') { renderStatus(m); renderToday(m); renderMap(m); }
     if (page === 'itinerary') renderItinerary(m);
     if (page === 'stays') renderStays(m);
     if (page === 'calendar') renderCalendar(m);

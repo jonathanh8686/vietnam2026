@@ -37,7 +37,7 @@ Add `?date=2026-11-24` to any page to see the site as it will look that day (tod
 
 ## Structure
 
-- `index.html` — today: countdown before the trip, then "Day N of 10", today's plan, tonight's stay, to-dos (before the trip only), route map
+- `index.html` — today: countdown before the trip, then "Day N of 10", today's plan, tonight's stay, route map
 - `calendar.html` — "Hours": one day at a time on an hour grid (Vietnam time). Items with a clock time ("1pm", "12:20pm - 2:30pm", or a time set on the Notion Date field) are solid blocks. Items without one are placed by keyword as dashed estimates ("daytime" ≈ 10–5, "night"/"bar" ≈ 9pm–1am, "dinner" ≈ 6–8:30pm, "day trip" ≈ 7–6). Anything with no clue goes in an "Anytime" strip. Suggested times like "leave by" live in `trip.json` `days[].events`. Link to a day with `calendar.html#2026-11-24`.
 - `itinerary.html` — every day: logistics, plans from Notion, where we sleep; auto-scrolls to today during the trip
 - `housing.html` — stays, with Maps / copy address / "Show driver" (large address plus a Vietnamese "please take me here")

@@ -482,41 +482,6 @@ dialog.driver::backdrop{ background:rgba(28,25,18,0.7); }
 .driver-address{ font-size:clamp(1.8rem,7vw,2.8rem); font-weight:700; line-height:1.2; margin:0; overflow-wrap:anywhere; }
 .driver-name{ font-family:var(--font-mono); margin:var(--s3) 0 var(--s4); }
 
-/* ---------- checklist ---------- */
-
-.checklist{ list-style:none; margin:0; padding:0; border-top:2px solid var(--ink); }
-.checklist li{ border-bottom:1px solid var(--ink); padding:var(--s3) var(--s1); }
-.checklist > li > span{ display:flex; gap:var(--s3); align-items:baseline; }
-.checklist > li > span::before{
-  content:"";
-  width:18px; height:18px;
-  border:2px solid var(--ink);
-  border-radius:3px;
-  flex:none;
-  transform:translateY(3px);
-}
-.checklist li.done{ color:var(--ink-soft); }
-.checklist li.done > span::before{
-  content:"✓";
-  background:var(--teal); border-color:var(--teal);
-  color:var(--paper); font-size:0.75rem; font-weight:700; line-height:14px; text-align:center;
-}
-.checklist li.done > span{ text-decoration:line-through; }
-.checklist a{ color:var(--red); font-weight:600; }
-.checklist.sub{ border-top:none; margin:var(--s2) 0 0 30px; }
-.checklist.sub li{ border-bottom:none; padding:2px 0; font-size:0.92rem; }
-.done-list{ margin-top:var(--s3); }
-.done-list summary{ cursor:pointer; font-family:var(--font-mono); font-size:0.85rem; padding:var(--s2) 0; min-height:44px; display:flex; align-items:center; }
-.missing{
-  margin-top:var(--s5);
-  padding:var(--s4);
-  border:2px dashed var(--red);
-  border-radius:var(--radius);
-}
-.missing h3{ font-size:1rem; }
-.missing ul{ margin:var(--s2) 0; padding-left:20px; }
-.missing p{ margin:0; font-size:0.9rem; }
-
 /* ---------- route map (Leaflet) ---------- */
 
 .route-map{
