@@ -211,6 +211,7 @@
 
   // ---------- shared components ----------
   function mapsUrl(stay) {
+    if (stay.mapsUrl) return stay.mapsUrl;
     return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(stay.mapsQuery || stay.address);
   }
   function copyText(text, btn) {
@@ -320,6 +321,8 @@
         h('div', null, h('dt', null, 'Check-in'), h('dd', null, weekday(stay.checkIn) + ' ' + fmtDay(stay.checkIn) + ' · ' + stay.checkInTime)),
         h('div', null, h('dt', null, 'Check-out'), h('dd', null, weekday(stay.checkOut) + ' ' + fmtDay(stay.checkOut) + ' · ' + stay.checkOutTime)),
         h('div', null, h('dt', null, 'Who'), h('dd', null, stay.who)),
+        stay.floor ? h('div', null, h('dt', null, 'Floor'), h('dd', null, stay.floor)) : null,
+        stay.guideUrl ? h('div', null, h('dt', null, 'Guide'), h('dd', null, h('a', { href: stay.guideUrl, target: '_blank', rel: 'noopener' }, 'Host check-in steps ↗'))) : null,
         stay.note ? h('div', null, h('dt', null, 'Note'), h('dd', null, stay.note)) : null));
   }
 

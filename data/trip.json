@@ -100,7 +100,8 @@
   {
    "date": "2026-11-21",
    "place": "hcm",
-   "title": "HCMC day 1 — everyone lands"
+   "title": "HCMC day 1 — everyone lands",
+   "tip": "Hotel checkout is by 12pm but the Airbnb opens at 3pm: ask the hotel to hold bags (or ask the host about an early drop). Late arrivals let themselves in with the door codes."
   },
   {
    "date": "2026-11-22",
@@ -179,14 +180,17 @@
    "id": "hcm-airbnb",
    "place": "hcm",
    "name": "HCMC Airbnb",
-   "address": "Đường Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh",
-   "mapsQuery": "Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh",
+   "address": "142bis Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+   "mapsQuery": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+   "mapsUrl": "https://maps.app.goo.gl/3NwLJ49pgSFaiRDC6",
+   "floor": "Second floor",
+   "guideUrl": "https://leplaces.blogspot.com/2025/07/142%20Acient%20House.html",
    "checkIn": "2026-11-21",
    "checkInTime": "from 3pm",
    "checkOut": "2026-11-24",
    "checkOutTime": "by 11am",
    "who": "Everyone",
-   "note": "Only the street is listed. Get the house number and entry details from the Airbnb app."
+   "note": "Door codes and WiFi are in the host's Airbnb message. The host needs every guest's passport photo page before check-in, then each e-visa or entry stamp after landing (local stay registration, required by law). Report any problems to the host within 1 hour of check-in. Smoking on the balcony only; no parties."
   },
   {
    "id": "hanoi-airbnb",
@@ -205,7 +209,6 @@
  "missing": [
   "Joyce's flight to Saigon (if it isn't the same as Jonathan's)",
   "Flight numbers and return flights for Andrew, Peter and Olivia",
-  "House number for the HCMC Airbnb",
   "How we're getting to Ninh Binh"
  ],
  "departAt": "2026-11-19T11:10:00-06:00",
