@@ -101,7 +101,7 @@
    "date": "2026-11-21",
    "place": "hcm",
    "title": "HCMC day 1 — everyone lands",
-   "tip": "Hotel checkout is by 12pm but the Airbnb opens at 3pm: ask the hotel to hold bags (or ask the host about an early drop). Late arrivals let themselves in with the door codes.",
+   "tip": "The host confirmed early bag drop-off: drop bags at the Airbnb on the way to breakfast, check in properly from 3pm. Late arrivals let themselves in with the door codes.",
    "planUrl": "https://claude.ai/artifact/WsSGxiiQM6zGhDGBfT7s9Z",
    "notionTimes": {
     "huelley rose": ["13:45", "15:00"]
@@ -110,8 +110,8 @@
     {
      "time": "08:45",
      "end": "09:20",
-     "label": "Check out, sort the bags",
-     "note": "Plan A: drop bags at the Airbnb on the way. Plan B: the hotel holds them until ~3pm.",
+     "label": "Check out, drop bags at the Airbnb",
+     "note": "Host confirmed early drop-off. Grab from the hotel (25–35 min), then on to breakfast.",
      "owner": "jonathan"
     },
     {
@@ -134,14 +134,6 @@
      "label": "Coffee: Cộng Cà Phê",
      "note": "274 Hai Bà Trưng, opposite the Pink Church. Church photo from the sidewalk.",
      "owner": "jonathan"
-    },
-    {
-     "time": "13:40",
-     "end": "14:50",
-     "label": "Plan B only: Jonathan's bag run",
-     "note": "While Joyce is at Huelley Rose (walk-in): Grab to the hotel (~25 min), collect bags, Grab to the Airbnb (~30 min) for the 3pm check-in. Joyce Grabs over after.",
-     "owner": "jonathan",
-     "fuzzy": true
     },
     {
      "time": "15:30",
