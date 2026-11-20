@@ -80,16 +80,16 @@
    "date": "2026-11-20",
    "place": "hcm",
    "title": "Land in Saigon",
-   "tip": "Jonathan's KE479 from Seoul now lands at 11:50pm (it moved from 11:20pm), so expect to reach the hotel around 1am.",
+   "tip": "Jonathan's KE479 from Seoul is delayed: it now leaves at 9:05pm and lands at 12:58am Saturday, so expect to reach the hotel around 2am.",
    "events": [
     {
-     "time": "23:50",
-     "label": "Jonathan lands at SGN (KE479)",
+     "time": "24:58",
+     "label": "Jonathan lands at SGN (KE479, delayed)",
      "kind": "arrive"
     },
     {
-     "time": "25:00",
-     "end": "25:30",
+     "time": "25:45",
+     "end": "26:15",
      "label": "Reach Summer Apartment Hotel",
      "note": "about",
      "kind": "checkin",
@@ -258,7 +258,7 @@
    "checkOut": "2026-11-21",
    "checkOutTime": "by 12pm",
    "who": "Joyce + Jonathan",
-   "note": "Landing 11:50pm, so arrival is around 1am. Let the hotel know it's a late check-in."
+   "note": "Flight KE 479 is delayed: now landing 12:58am Saturday, so arrival is around 2am. Let the hotel know it's a very late check-in."
   },
   {
    "id": "hcm-airbnb",
