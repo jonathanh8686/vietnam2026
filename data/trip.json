@@ -108,17 +108,17 @@
    },
    "events": [
     {
-     "time": "08:45",
-     "end": "09:20",
+     "time": "09:45",
+     "end": "10:15",
      "label": "Check out, drop bags at the Airbnb",
-     "note": "Host confirmed early drop-off. Grab from the hotel (25–35 min), then on to breakfast.",
+     "note": "Host confirmed early drop-off. Grab from the hotel (25–35 min), then 10–15 min on to Hòa Mã.",
      "owner": "jonathan"
     },
     {
-     "time": "09:45",
-     "end": "10:35",
-     "label": "Breakfast: Bánh Mì Hòa Mã",
-     "note": "53 Cao Thắng, D3. Get the bánh mì chảo. Closes 11am and can sell out — arrive by 10:15.",
+     "time": "10:25",
+     "end": "10:50",
+     "label": "Coffee + bánh mì: Hòa Mã",
+     "note": "53 Cao Thắng, D3. Keep it light: a bánh mì and an iced milk coffee. Closes 11am and can sell out — take one to go if needed. 4-min Grab to Resel.",
      "owner": "jonathan"
     },
     {
