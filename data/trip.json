@@ -190,7 +190,95 @@
   {
    "date": "2026-11-22",
    "place": "hcm",
-   "title": "HCMC day 2"
+   "title": "HCMC day 2 — Joyce's shoot",
+   "tip": "Joyce's RINTRAN shoot is 12–3pm in District 7 (89A Lý Phục Man, about 20–25 min by Grab). Everyone does the morning together, the other four lunch and see the War Remnants Museum, and all five regroup at the Airbnb by 3:30. Bring cash: Ốc Đào and the museum take cash only.",
+   "planUrl": "https://claude.ai/artifact/HaAt2JvAJ1T9UyQf7nEsnC",
+   "events": [
+    {
+     "time": "09:30",
+     "end": "10:05",
+     "label": "Breakfast: Hủ tiếu cá Nam Lợi",
+     "note": "43 Tôn Thất Đạm, 10 min walk. Light fish noodle soup; weekend hours 6am–noon. Backup: Hủ tiếu Mỹ Tho Thanh Xuân, 62 Tôn Thất Thiệp (6am–1:30pm).",
+     "owner": "jonathan"
+    },
+    {
+     "time": "10:15",
+     "end": "10:40",
+     "label": "Central Post Office + Notre-Dame",
+     "note": "Grab ~8 min. Post Office is free and likely open Sunday; the cathedral is outside only (restoration). Souvenir sellers and a donation-photo bear: just walk past.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "10:40",
+     "end": "10:55",
+     "label": "Book Street",
+     "note": "Đường sách Nguyễn Văn Bình, next to the Post Office. Lively on Sundays.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "10:55",
+     "end": "11:30",
+     "label": "Joyce: back to the Airbnb to get ready",
+     "note": "Grab ~10 min. Leave for District 7 by 11:30 (about 20–25 min). Take water and a snack.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "11:00",
+     "end": "11:35",
+     "label": "The four: coffee at XLIII",
+     "note": "178a Pasteur, AC. Pricey specialty coffee (tasting tiers 125–500k VND). 8 min walk to lunch.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "11:45",
+     "end": "13:20",
+     "label": "The four: lunch at Mặn Mòi",
+     "note": "34 Võ Văn Tần, D3, levels 2–3. Bib Gourmand home-style Vietnamese. Book for 4 on TableCheck or +84 899 189 218.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "13:30",
+     "end": "15:00",
+     "label": "The four: War Remnants Museum",
+     "note": "28 Võ Văn Tần, next door. 40k VND cash, open 7:30am–6pm. Graphic galleries. If Joyce wants to see it too, do Independence Palace now and the museum together on Nov 23 morning.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "15:30",
+     "end": "17:00",
+     "label": "Regroup at the Airbnb, rest",
+     "note": "Joyce is back ~3:25. AC, snacks, naps for Peter and Olivia.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "17:10",
+     "end": "18:15",
+     "label": "Sunset: Social Club Rooftop",
+     "note": "Hôtel des Arts, 24th floor, 76-78 Nguyễn Thị Minh Khai. Sunset 5:27pm. Book a table for 5 (+84 28 3989 8888). Smart casual.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "18:30",
+     "end": "20:00",
+     "label": "Dinner: Ốc Đào",
+     "note": "212B/D48 Nguyễn Trãi. Michelin-listed snails and shellfish. Cash only. Arrive by 6:30, ask for the AC 2nd floor. Order ốc hương, garlic-butter shellfish, grilled oysters, bread.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "20:15",
+     "end": "21:30",
+     "label": "Bar 1: The Enigma Mansion",
+     "note": "5H Tôn Đức Thắng. Asia's 50 Best #55. Grab ~10 min. Book for 5; splurge-ish.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "21:45",
+     "end": "23:00",
+     "label": "Bar 2: CỘI Jazz",
+     "note": "77-79 Lý Tự Trọng (Summer Experiment's building). Live jazz on weekends, fills fast on Sundays: book (+84 833 167 332). 12 min walk home, or Bùi Viện if anyone's still going.",
+     "owner": "jonathan"
+    }
+   ]
   },
   {
    "date": "2026-11-23",

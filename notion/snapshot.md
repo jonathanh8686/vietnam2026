@@ -10,7 +10,7 @@
   - [x] hcm
   - [x] hanoi
 - [x] book hcm > hanoi flight ($50)
-- [ ] [apply for visa](https://evisa.gov.vn/) ($25) 
+- [x] [apply for visa](https://evisa.gov.vn/) ($25) 
 - [ ] research things to do
   - [ ] bars + nightlife
   - [ ] custom clothing 
@@ -35,12 +35,16 @@ CHI: Jonathan
 | transit / arrive in ho chi minh |  |  | joyce + jonathan arriving 11:30pm local time | 2026-11-20 |
 | check-in to hotel |  |  | **Summer Apartment Hotel  **62 Đường Hồng Hà 6, 700000 Ho Chi Minh City, Vietnam | 2026-11-20 |
 | hcm - day 1  |  |  |  | 2026-11-21 |
+| 11am: resel bridal appt |  |  | 245 Võ Văn Tần, District 3, Ho Chi Minh City | 2026-11-21 |
+| huelley rose |  |  | 214 HAI BÀ TRƯNG, TÂN ĐỊNH, Q1, HCMC, VIETNAM | 2026-11-21 |
+| 4pm: olivia ng bridal appt |  |  |  | 2026-11-21 |
 | airbnb check-in |  |  | Đường Lê Thị Hồng Gấm, Quận 1, Hồ Chí Minh, 750000, Vietnam check-in avail at 3pm | 2026-11-21 |
 | daytime: Nguyen Hue Walking Street  & Cafe Apartments |  |  | chill sightseeing / cafes / walking around  | 2026-11-21 |
 | andrew arrives 1pm |  |  |  | 2026-11-21 |
 | nighttime: go out / bar hopping |  |  | gotta conquer jetlag on night 1 🫵 | 2026-11-21 |
 | peter and olivia arrive @ 11pm  |  |  |  | 2026-11-21 |
 | hcm - day 2 |  |  |  | 2026-11-22 |
+| 12pm-3pm: joyce shoot at RINTRAN  |  |  | 89A Đ. Lý Phục Man, Tân Thuận, Hồ Chí Minh, Việt Nam | 2026-11-22 |
 | sightseeing  |  |  | war remnants museum, Saigon Central Post Office, Chinatown, traditional medicine shops, Ba Thien Hau Temple, cu chi tunnels? | 2026-11-22 |
 | bar hopping |  |  |  | 2026-11-22 |
 | hcm day 3  |  |  | Ben Thanh Market, boutiques / cafes | 2026-11-23 |
@@ -51,6 +55,7 @@ CHI: Jonathan
 | check-in Hanoi Airbnb |  |  | 3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội, Vietnam check-in avail at 2pm | 2026-11-24 |
 | sightseeing? |  |  | Ho Hoan Kiem (Sword Lake) EGG COFFEE!!!  | 2026-11-24 |
 | hanoi day 1 (old quarter) cultural sightseeing, cafes, street food dinner |  |  | ancient Temple of Literature and St. Joseph's Cathedral, Train Street, street food tour | 2026-11-25 |
+| camille bridal showroom |  |  | 45 Nguyễn Hy Quang street, Đống Đa | 2026-11-25 |
 | day trip to ninh binh |  |  | 2-hour drive south, leave early  | 2026-11-26 |
 | traditional boat tour |  |  |  | 2026-11-26 |
 | explore Hang Mua (Mua Cave) / rice paddies |  |  |  | 2026-11-26 |
@@ -179,10 +184,17 @@ A wedding gown requires intricate structural engineering (hidden boning, built-i
 <!-- notion:3a4df3b8-9989-80c5-9456-d16b1d19de47 -->
 # Vietnam brands 
 
+shopping list
+- [ ] wedding dress
+- [ ] veil
+- [ ] shoes
+- [ ] white bikini?
+- [ ] white mini dress (for dinner + games)
+- [ ] bag? 
+- [ ] suitcase
 Hanoi
 [orié baie (@orie.baie) • Instagram profile](https://www.instagram.com/orie.baie?igsh=MXJtajU5dm5uY3dzYQ==)
 HCM
-[D A T T (@datt_official) • Instagram profile](https://www.instagram.com/datt_official?igsh=cnJ4bXB5OG90NTJ6)
 [POWRPOWR (@powrofficial) • Instagram profile](https://www.instagram.com/powrofficial?igsh=MXg2aHZma2t0d3ozNw==)
 [Huelley Rose (@huelleyrose) • Instagram profile](https://www.instagram.com/huelleyrose?igsi=MjBsYXhpb3YzajB2)
 [www.instagram.com](https://www.instagram.com/huong.boutique/) huong boutique

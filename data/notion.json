@@ -1,6 +1,6 @@
 {
  "source": "https://joycebean.notion.site/Vietnam-2026-352df3b899898097909df34eb478c732",
- "fetchedAt": "2026-11-15T07:26:46+00:00",
+ "fetchedAt": "2026-11-20T10:05:42+00:00",
  "todos": [
   {
    "text": [
@@ -85,7 +85,7 @@
      "t": " ($25) "
     }
    ],
-   "done": false,
+   "done": true,
    "children": []
   },
   {
@@ -214,6 +214,53 @@
    "checked": false
   },
   {
+   "id": "41ddf3b8-9989-80c3-a972-f1d6a5787240",
+   "date": "2026-11-21",
+   "time": null,
+   "endTime": null,
+   "name": [
+    {
+     "t": "11am: resel bridal appt"
+    }
+   ],
+   "notes": [
+    {
+     "t": "245 Võ Văn Tần, District 3, Ho Chi Minh City"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "41ddf3b8-9989-8013-b5f3-cc94a496705d",
+   "date": "2026-11-21",
+   "time": null,
+   "endTime": null,
+   "name": [
+    {
+     "t": "huelley rose"
+    }
+   ],
+   "notes": [
+    {
+     "t": "214 HAI BÀ TRƯNG, TÂN ĐỊNH, Q1, HCMC, VIETNAM"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "41ddf3b8-9989-8002-987d-dc3280329f6f",
+   "date": "2026-11-21",
+   "time": null,
+   "endTime": null,
+   "name": [
+    {
+     "t": "4pm: olivia ng bridal appt"
+    }
+   ],
+   "notes": [],
+   "checked": false
+  },
+  {
    "id": "382df3b8-9989-805b-997f-c45eada3c5ee",
    "date": "2026-11-21",
    "time": null,
@@ -301,6 +348,23 @@
     }
    ],
    "notes": [],
+   "checked": false
+  },
+  {
+   "id": "41ddf3b8-9989-80fd-8977-eeaf562d594c",
+   "date": "2026-11-22",
+   "time": null,
+   "endTime": null,
+   "name": [
+    {
+     "t": "12pm-3pm: joyce shoot at RINTRAN "
+    }
+   ],
+   "notes": [
+    {
+     "t": "89A Đ. Lý Phục Man, Tân Thuận, Hồ Chí Minh, Việt Nam"
+    }
+   ],
    "checked": false
   },
   {
@@ -466,6 +530,23 @@
    "notes": [
     {
      "t": "ancient Temple of Literature and St. Joseph's Cathedral, Train Street, street food tour"
+    }
+   ],
+   "checked": false
+  },
+  {
+   "id": "41ddf3b8-9989-8064-a79e-dcb308802c72",
+   "date": "2026-11-25",
+   "time": null,
+   "endTime": null,
+   "name": [
+    {
+     "t": "camille bridal showroom"
+    }
+   ],
+   "notes": [
+    {
+     "t": "45 Nguyễn Hy Quang street, Đống Đa"
     }
    ],
    "checked": false
