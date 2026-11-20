@@ -529,9 +529,22 @@
   function eventsFor(m, day) {
     var p = m.plans[day.date] || { logistics: [], plans: [] };
     var timed = [], anytime = [];
+    // day.notionTimes slots an untimed Notion item into the hour view at a suggested
+    // time ({"huelley rose": ["13:45", "14:35"]}). It stays a Notion pin; adding a
+    // time to the row in Notion itself takes over automatically.
+    var slots = day.notionTimes || {};
     p.logistics.concat(p.plans).forEach(function (it) {
       var w = it.when;
-      if (!w) { anytime.push(it); return; }
+      if (!w) {
+        var name = plain(it.name).toLowerCase(), key = null;
+        Object.keys(slots).forEach(function (k) { if (!key && name.indexOf(k.toLowerCase()) !== -1) key = k; });
+        if (key) {
+          var s0 = hhmm(slots[key][0]), e0 = hhmm(slots[key][1]);
+          timed.push({ item: it, start: s0, end: e0 != null ? e0 : s0 + 60, exact: false, band: fmtClock(s0), ranged: true });
+          return;
+        }
+        anytime.push(it); return;
+      }
       timed.push({ item: it, start: w.start, end: w.end, exact: w.exact, band: w.band, ranged: w.end - w.start > 60 && w.exact });
     });
     (day.events || []).forEach(function (e) {
