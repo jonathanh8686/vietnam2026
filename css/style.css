@@ -749,3 +749,50 @@ footer .gold{ color:var(--gold-bright); }
   .day-stub.is-past{ opacity:1; }
   section{ padding-top:16px; }
 }
+
+/* ---------- personal plan blocks (owner on curated events) vs Notion pins ---------- */
+.src-tag{
+  display:inline-block;
+  margin-left:6px;
+  padding:0 6px;
+  border-radius:3px;
+  font-family:var(--font-mono);
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  vertical-align:1px;
+  white-space:nowrap;
+}
+.src-tag.notion{ background:var(--paper); color:var(--ink); border:1.5px solid var(--ink); }
+.src-tag.mine{ background:var(--teal); color:var(--paper); border:1.5px solid var(--teal); }
+
+.mine-plan{
+  margin:var(--s4) 0 0;
+  padding:var(--s3);
+  border:2px dashed var(--teal);
+  border-radius:var(--radius);
+  background:rgba(31,92,82,0.06);
+}
+.mine-plan-head{ display:flex; flex-wrap:wrap; gap:var(--s2); align-items:baseline; font-size:0.85rem; }
+.mine-plan-head .src-tag{ margin-left:0; font-size:0.7rem; }
+.mine-plan-head a{ margin-left:auto; color:var(--teal); font-weight:600; }
+.mine-list{ list-style:none; margin:var(--s3) 0 0; padding:0; display:grid; gap:var(--s2); }
+.mine-list li{ display:grid; grid-template-columns:62px 1fr; gap:var(--s2); align-items:baseline; }
+.mine-time{ font-family:var(--font-mono); font-size:0.8rem; font-weight:600; color:var(--teal); }
+.mine-list li.fuzzy .plan-name{ color:var(--ink-soft); }
+
+.cal-ev.mine{
+  background:#E2EDE8;
+  border:2px dashed var(--teal);
+  box-shadow:2px 2px 0 var(--teal);
+}
+.cal-ev.mine.fuzzy{ background:repeating-linear-gradient(135deg, rgba(226,237,232,0.9) 0 8px, rgba(247,240,222,0.9) 8px 16px); box-shadow:none; }
+.cal-ev.mine .cal-ev-time{ color:var(--teal); }
+.cal-ev.from-notion.exact{ border-left-width:6px; }
+.cal-legend{
+  display:flex; flex-wrap:wrap; gap:6px var(--s2); align-items:baseline;
+  margin:var(--s3) 0; font-size:0.82rem; color:var(--ink-soft);
+}
+.cal-legend .src-tag{ margin-left:0; }
+.cal-legend a{ color:var(--teal); font-weight:600; }

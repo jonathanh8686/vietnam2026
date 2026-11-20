@@ -268,6 +268,35 @@
         plain(it.notes) ? h('span', { class: 'plan-notes' }, segsNodes(it.notes)) : null));
   }
 
+  // Curated blocks with an "owner" are one person's suggested schedule layered on
+  // top of the group's Notion plan, so they're drawn apart from the Notion pins.
+  function ownerName(o) { return o ? o.charAt(0).toUpperCase() + o.slice(1) : ''; }
+  function minePlan(day) {
+    var mine = (day.events || []).filter(function (e) { return e.owner; });
+    if (!mine.length) return null;
+    var who = ownerName(mine[0].owner);
+    return h('div', { class: 'mine-plan' },
+      h('div', { class: 'mine-plan-head' },
+        h('span', { class: 'src-tag mine' }, who + '’s plan'),
+        h('span', { class: 'muted' }, 'Suggestions around the Notion pins'),
+        day.planUrl ? h('a', { href: day.planUrl, target: '_blank', rel: 'noopener' }, 'Full plan ↗') : null),
+      h('ul', { class: 'mine-list' }, mine.map(function (e) {
+        var s = hhmm(e.time);
+        return h('li', { class: e.fuzzy ? 'fuzzy' : null },
+          h('span', { class: 'mine-time' }, (e.fuzzy ? '~' : '') + fmtClock(s)),
+          h('span', { class: 'plan-text' },
+            h('span', { class: 'plan-name' }, e.label),
+            e.note ? h('span', { class: 'plan-notes' }, e.note) : null));
+      })));
+  }
+  function legend(day) {
+    var mine = (day.events || []).filter(function (e) { return e.owner; });
+    return h('p', { class: 'cal-legend' },
+      h('span', { class: 'src-tag notion' }, 'Notion'), h('span', null, 'group plan from Joyce’s Notion'),
+      h('span', { class: 'src-tag mine' }, ownerName(mine[0].owner)), h('span', null, ownerName(mine[0].owner) + '’s suggested blocks'),
+      day.planUrl ? h('a', { href: day.planUrl, target: '_blank', rel: 'noopener' }, 'Full plan ↗') : null);
+  }
+
   function dayCard(m, i, opts) {
     opts = opts || {};
     var trip = m.trip, day = trip.days[i];
@@ -287,6 +316,7 @@
       p.logistics.length ? h('ul', { class: 'plan-list logistics' }, p.logistics.map(itemNode)) : null,
       p.plans.length ? h('ul', { class: 'plan-list' }, p.plans.map(itemNode)) : null,
       !p.logistics.length && !p.plans.length ? h('p', { class: 'muted' }, 'Nothing planned in Notion yet.') : null,
+      minePlan(day),
       opts.compact ? null : h('a', { class: 'hours-link', href: 'calendar.html#' + day.date }, 'Hour by hour →'),
       stay ? h('p', { class: 'day-sleep' },
         h('span', { class: 'logi-tag' }, 'Sleep'),
@@ -507,7 +537,7 @@
     (day.events || []).forEach(function (e) {
       var s = hhmm(e.time), en = hhmm(e.end);
       timed.push({
-        item: { name: [{ t: e.label }], notes: e.note ? [{ t: e.note }] : [], kind: e.kind || null, label: null, maybe: false, curated: true },
+        item: { name: [{ t: e.label }], notes: e.note ? [{ t: e.note }] : [], kind: e.kind || null, label: null, maybe: false, curated: true, owner: e.owner || null },
         start: s, end: en != null ? en : s + 60, exact: !e.fuzzy, band: e.fuzzy ? 'about ' + fmtClock(s) : null, ranged: en != null
       });
     });
@@ -590,7 +620,7 @@
           : 'left:calc(' + railPx + 'px + (100% - ' + railPx + 'px) * ' + (e.col / e.ncols) + ' + 2px);width:calc((100% - ' + railPx + 'px) / ' + e.ncols + ' - 4px)';
         var block = h('button', {
           type: 'button',
-          class: 'cal-ev' + (e.exact ? ' exact' : ' fuzzy') + (e.rail ? ' rail' : '') + (it.kind ? ' logi-' + it.kind : '') + (it.maybe ? ' maybe' : '') + (it.curated ? ' curated' : '') + (height < 56 ? ' short' : ''),
+          class: 'cal-ev' + (e.exact ? ' exact' : ' fuzzy') + (e.rail ? ' rail' : '') + (it.kind ? ' logi-' + it.kind : '') + (it.maybe ? ' maybe' : '') + (it.curated ? ' curated' : ' from-notion') + (it.owner ? ' mine' : '') + (height < 56 ? ' short' : ''),
           style: 'top:' + (e.start - lo) * PX + 'px;height:' + height + 'px;' + pos,
           'data-label': e.rail ? '~ ' + plain(it.name) : null,
           'aria-expanded': 'false',
@@ -599,7 +629,8 @@
             b.setAttribute('aria-expanded', open ? 'true' : 'false');
           }
         },
-          h('span', { class: 'cal-ev-time' }, fmtRange(e)),
+          h('span', { class: 'cal-ev-time' }, fmtRange(e),
+            it.owner ? h('span', { class: 'src-tag mine' }, ownerName(it.owner)) : !it.curated ? h('span', { class: 'src-tag notion' }, 'Notion') : null),
           h('span', { class: 'cal-ev-name' }, segsNodes(it.name, { capitalize: true }), it.maybe ? h('span', { class: 'maybe-tag' }, 'maybe') : null),
           plain(it.notes) ? h('span', { class: 'cal-ev-notes' }, segsNodes(it.notes)) : null);
         lane.appendChild(block);
@@ -635,6 +666,7 @@
               plain(it.notes) ? h('span', { class: 'plan-notes' }, segsNodes(it.notes)) : null);
           }))) : null,
         !ev.timed.length && !ev.anytime.length ? h('p', { class: 'muted' }, 'Nothing planned in Notion for this day yet.') : null,
+        ev.timed.some(function (e) { return e.item.owner; }) ? legend(day) : null,
         ev.timed.length ? grid : null,
         stay ? h('p', { class: 'day-sleep' }, h('span', { class: 'logi-tag' }, 'Sleep'),
           h('span', null, stay.name + ' · ', h('a', { href: mapsUrl(stay), target: '_blank', rel: 'noopener' }, stay.address + ' ↗'))) : null

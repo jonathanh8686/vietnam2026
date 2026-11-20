@@ -101,7 +101,96 @@
    "date": "2026-11-21",
    "place": "hcm",
    "title": "HCMC day 1 — everyone lands",
-   "tip": "Hotel checkout is by 12pm but the Airbnb opens at 3pm: ask the hotel to hold bags (or ask the host about an early drop). Late arrivals let themselves in with the door codes."
+   "tip": "Hotel checkout is by 12pm but the Airbnb opens at 3pm: ask the hotel to hold bags (or ask the host about an early drop). Late arrivals let themselves in with the door codes.",
+   "planUrl": "https://claude.ai/artifact/WsSGxiiQM6zGhDGBfT7s9Z",
+   "events": [
+    {
+     "time": "08:45",
+     "end": "09:20",
+     "label": "Check out, sort the bags",
+     "note": "Plan A: drop bags at the Airbnb on the way. Plan B: the hotel holds them until ~1:45.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "09:45",
+     "end": "10:35",
+     "label": "Breakfast: Bánh Mì Hòa Mã",
+     "note": "53 Cao Thắng, D3. Get the bánh mì chảo. Closes 11am and can sell out — arrive by 10:15.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "12:15",
+     "end": "13:00",
+     "label": "Lunch: Bánh Xèo 46A",
+     "note": "46 Đinh Công Tráng, Tân Định. Crispy bánh xèo, Bib Gourmand. Lunch ends 1:50pm; expect a queue.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "13:00",
+     "end": "13:40",
+     "label": "Coffee: Cộng Cà Phê",
+     "note": "274 Hai Bà Trưng, opposite the Pink Church. Church photo from the sidewalk.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "13:00",
+     "end": "15:00",
+     "label": "Plan B only: Jonathan gets the bags + meets Andrew",
+     "note": "Grab to the hotel, collect bags, meet Andrew at SGN T2 arrivals ~2pm, 7-seat GrabCar to the Airbnb.",
+     "owner": "jonathan",
+     "fuzzy": true
+    },
+    {
+     "time": "15:30",
+     "end": "17:00",
+     "label": "Andrew rests",
+     "note": "Joyce and Jonathan leave at 3:30 for the 4pm Olivia Ng appointment.",
+     "owner": "jonathan",
+     "fuzzy": true
+    },
+    {
+     "time": "17:15",
+     "end": "17:45",
+     "label": "Regroup: Café Apartments entrance",
+     "note": "42 Nguyễn Huệ, ground floor. First one there picks a café and posts the floor. Sunset 5:27pm.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "17:45",
+     "end": "18:45",
+     "label": "Walk Nguyễn Huệ to the river",
+     "note": "Down to Tôn Đức Thắng and back past the Opera House. Busy on weekend nights — keep phones close.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "19:00",
+     "end": "20:30",
+     "label": "Dinner: Bếp Nhà Lục Tỉnh",
+     "note": "37 Nam Kỳ Khởi Nghĩa. Mekong Delta home cooking: bánh khọt + sweet-sour hotpot. Book: +84 906 727 571.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "20:45",
+     "end": "22:15",
+     "label": "Bar 1: Stir",
+     "note": "1st floor, alley 136 Lê Thánh Tôn. Asia's 50 Best #84. Book ahead.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "22:20",
+     "end": "24:15",
+     "label": "Bar 2: Summer Experiment",
+     "note": "77–79 Lý Tự Trọng. Open until 2am, 12 min walk to the Airbnb. Book ahead.",
+     "owner": "jonathan"
+    },
+    {
+     "time": "24:45",
+     "end": "25:15",
+     "label": "Late phở with all five",
+     "note": "Phở Việt Nam, 14 Phạm Hồng Thái — 5 min from the Airbnb, open until 3am.",
+     "owner": "jonathan"
+    }
+   ]
   },
   {
    "date": "2026-11-22",
