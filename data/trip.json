@@ -660,6 +660,15 @@
    "date": "2026-11-23",
    "place": "hcm",
    "title": "HCMC day 3",
+   "tip": "Nephele is booked for 6 at 8pm (125/12 Nguyễn Cửu Vân, Bình Thạnh, about 20 min by Grab). The deposit is 1,000,000 VND per guest and is lost for a no-show or a cancellation within 24 hours, so any change must be made before 8pm Sunday.",
+   "events": [
+    {
+     "time": "20:00",
+     "end": "23:00",
+     "label": "Dinner: Nephele (booked, 6 guests)",
+     "note": "125/12 Nguyễn Cửu Vân, Bình Thạnh. Single tasting menu; table back by 11pm. Leave the Airbnb by 7:35."
+    }
+   ],
    "stops": [
     {
      "name": "HCMC Airbnb",
@@ -685,10 +694,17 @@
      "note": "None picked yet"
     },
     {
-     "name": "Cheap Michelin dinner",
-     "time": "dinner",
-     "maybe": true,
-     "note": "None picked yet"
+     "name": "Dinner: Nephele (booked)",
+     "lat": 10.7972,
+     "lng": 106.7065,
+     "q": "Nephele Restaurant, 125/12 Nguyễn Cửu Vân, Bình Thạnh, Hồ Chí Minh",
+     "time": "8pm",
+     "note": "Booked for 6 at 8pm, table back by 11pm. Single tasting menu, Michelin Selected. Pin is street-level.",
+     "hop": {
+      "mode": "grab",
+      "min": 20,
+      "km": 4.5
+     }
     },
     {
      "name": "Mekong Delta day trip (Mỹ Tho)",
