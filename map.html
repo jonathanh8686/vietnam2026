@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map — Vietnam '26</title>
+<meta name="description" content="Map of each day's stops on the Vietnam trip, in the order we visit them.">
+<meta name="theme-color" content="#F7F0DE">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css?v=10">
+</head>
+<body data-page="map">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Site">
+  <div class="wrap">
+    <a class="nav-brand" href="index.html">VIETNAM <span class="flight-code">SGN&nbsp;→&nbsp;HAN&nbsp;'26</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Today</a></li>
+      <li><a href="calendar.html">Hours</a></li>
+      <li><a href="itinerary.html">Days</a></li>
+      <li><a href="map.html" aria-current="page">Map</a></li>
+      <li><a href="housing.html">Stays</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+<header class="wrap page-head">
+  <p class="eyebrow">Where we go, in order</p>
+  <h1>Day maps</h1>
+  <p>Pick a day to see its stops numbered in order, joined by the path we take. <span class="maybe-tag">maybe</span> stops are still open votes; ◇ marks side trips off the main path.</p>
+</header>
+
+<section class="wrap cal-section">
+  <nav class="cal-strip" id="map-strip" aria-label="Pick a day"></nav>
+  <div id="map-view"></div>
+</section>
+<noscript><p class="wrap load-error">This site needs JavaScript to show the plans.</p></noscript>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>VIETNAM <span class="gold">2026</span> · HCMC → Hanoi · Nov 19–28</p>
+    <p id="sync" class="sync"></p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/app.js?v=10"></script>
+</body>
+</html>

@@ -3,10 +3,10 @@
  * last saved copy. Fonts and Leaflet are served from cache when present.
  * Map tiles are not cached. */
 // Bump VERSION together with the ?v= on style.css/app.js in every .html file.
-var VERSION = '9';
+var VERSION = '10';
 var CACHE = 'vn26-v' + VERSION;
 var CORE = [
-  './', 'index.html', 'calendar.html', 'itinerary.html', 'housing.html',
+  './', 'index.html', 'calendar.html', 'itinerary.html', 'housing.html', 'map.html',
   'css/style.css?v=' + VERSION, 'js/app.js?v=' + VERSION, 'data/trip.json', 'data/notion.json',
   'icon.svg', 'manifest.webmanifest'
 ];

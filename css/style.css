@@ -742,7 +742,7 @@ footer .gold{ color:var(--gold-bright); }
 /* ---------- print: the day-by-day as a paper backup ---------- */
 
 @media print{
-  .site-nav, .skip, footer, .btn, .btn-row, #jump-today, .route-map, .cal-strip, .cal-nav, .hours-link{ display:none !important; }
+  .site-nav, .skip, footer, .btn, .btn-row, #jump-today, .route-map, .cal-strip, .cal-nav, .hours-link, .seg-tabs, .stop-link{ display:none !important; }
   .cal-ev{ box-shadow:none; }
   body::before{ display:none; }
   .day-stub, .stay-card, .ticket{ box-shadow:none; break-inside:avoid; }
@@ -806,3 +806,77 @@ footer .gold{ color:var(--gold-bright); }
 .cal-ev.open .cal-ev-notes{ display:block; }
 .cal-ev > *{ flex-shrink:0; max-width:100%; }
 .cal-ev.notag .src-tag{ display:none; }
+
+/* ---------- map page: each day's route ---------- */
+
+.day-route-map{ margin-top:var(--s3); }
+#day-map{
+  height:460px;
+  border-radius:calc(var(--radius-lg) - 4px);
+  border:2px solid var(--ink);
+}
+#day-map.map-fallback{ height:auto; padding:var(--s4); background:var(--paper); }
+@media (max-width:640px){ #day-map{ height:340px; } }
+
+.stop-pin{ width:24px; height:24px; }
+.stop-pin.wide .trip-pin-num{ font-size:0.6rem; letter-spacing:-0.03em; }
+.stop-pin.maybe{ background:var(--paper) !important; border-style:dashed; }
+.stop-pin.side{ background:var(--paper-3); border-style:dashed; box-shadow:none; }
+.stop-pin.transit{ background:var(--paper-3); }
+.path-arrow{
+  width:16px; height:16px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--red);
+  font-size:13px; line-height:1;
+  text-shadow:0 0 2px var(--paper), 0 0 2px var(--paper);
+}
+
+.seg-tabs{ display:flex; gap:var(--s2); margin:var(--s3) 0 0; flex-wrap:wrap; }
+.seg-tab{
+  font-family:var(--font-mono); font-size:0.78rem; font-weight:600;
+  padding:6px 12px;
+  border:var(--border); border-radius:20px;
+  background:var(--paper); color:var(--ink); text-decoration:none;
+}
+.seg-tab.is-selected{ background:var(--ink); color:var(--paper); }
+.seg-leg{
+  font-family:var(--font-mono); font-size:0.8rem; font-weight:600;
+  margin:var(--s4) 0 0; padding:6px 10px;
+  background:var(--ink); color:var(--paper); border-radius:var(--radius);
+  display:inline-block;
+}
+
+.stop-list{ list-style:none; margin:var(--s4) 0 0; padding:0; display:grid; gap:var(--s2); }
+.stop{
+  display:flex; align-items:flex-start; gap:var(--s3);
+  padding:var(--s2) var(--s3);
+  background:var(--paper-2);
+  border:2px solid var(--ink);
+  border-radius:var(--radius);
+}
+.stop-loose, .stop-side{ background:transparent; border-style:dashed; }
+.stop-num{
+  flex:none;
+  width:28px; height:28px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-weight:700; font-size:0.85rem;
+  background:var(--ink); color:var(--paper);
+  border-radius:50%;
+}
+.stop-num.none{ background:transparent; color:var(--ink-soft); }
+button.stop-num{ border:0; padding:0; cursor:pointer; }
+button.stop-num.none{ border:1.5px dashed var(--ink-soft); }
+.stop-links{ flex:none; align-self:center; display:flex; flex-direction:column; align-items:flex-end; gap:4px; }
+.stop-body{ flex:1; min-width:0; }
+.stop-name{ margin:0; font-weight:600; line-height:1.3; }
+.stop-name .maybe-tag{ margin-left:var(--s2); }
+.stop-who{ margin-left:var(--s2); font-family:var(--font-mono); font-size:0.7rem; color:var(--teal); font-weight:600; }
+.stop.is-maybe .stop-name{ color:var(--ink-soft); }
+.stop-meta{ margin:2px 0 0; font-size:0.85rem; color:var(--ink-soft); }
+.stop-time{ font-family:var(--font-mono); font-size:0.75rem; font-weight:600; color:var(--red); }
+.stop-link{ font-family:var(--font-mono); font-size:0.75rem; font-weight:600; color:var(--teal); white-space:nowrap; }
+.stop-side-wrap{ margin-top:var(--s5); }
+.stop-side-wrap .stop-list{ margin-top:var(--s2); }
+.small-print{ font-size:0.8rem; margin-top:var(--s4); }
+.day-links{ display:flex; flex-wrap:wrap; gap:var(--s4); margin:var(--s3) 0 0; }
+.day-links .hours-link{ margin:0; }

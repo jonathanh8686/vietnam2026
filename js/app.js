@@ -317,7 +317,9 @@
       p.plans.length ? h('ul', { class: 'plan-list' }, p.plans.map(itemNode)) : null,
       !p.logistics.length && !p.plans.length ? h('p', { class: 'muted' }, 'Nothing planned in Notion yet.') : null,
       minePlan(day),
-      opts.compact ? null : h('a', { class: 'hours-link', href: 'calendar.html#' + day.date }, 'Hour by hour →'),
+      opts.compact ? null : h('p', { class: 'day-links' },
+        h('a', { class: 'hours-link', href: 'calendar.html#' + day.date }, 'Hour by hour →'),
+        day.stops ? h('a', { class: 'hours-link', href: 'map.html#' + day.date }, 'Map of the day →') : null),
       stay ? h('p', { class: 'day-sleep' },
         h('span', { class: 'logi-tag' }, 'Sleep'),
         h('span', null, stay.name + ' · ', h('a', { href: mapsUrl(stay), target: '_blank', rel: 'noopener' }, stay.address + ' ↗'))) : null);
@@ -723,6 +725,191 @@
     draw();
   }
 
+  // ---------- map page: each day's stops in order ----------
+  function stopUrl(s) { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.q || s.name); }
+  function dirUrl(path) {
+    var q = path.map(function (s) { return s.q || (s.lat + ',' + s.lng); });
+    var u = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(q[0]) + '&destination=' + encodeURIComponent(q[q.length - 1]);
+    if (q.length > 2) u += '&waypoints=' + encodeURIComponent(q.slice(1, -1).join('|'));
+    return u;
+  }
+  // Split a day's stops at {leg} markers and number the stops on the path (1, 2, 3 … across the whole day).
+  function daySegments(day) {
+    var segs = [{ label: null, items: [] }], n = 0;
+    (day.stops || []).forEach(function (s) {
+      if (s.leg) { segs.push({ label: s.leg, items: [] }); return; }
+      var it = Object.assign({}, s);
+      if (s.lat != null && !s.off) it.num = ++n;
+      segs[segs.length - 1].items.push(it);
+    });
+    segs.forEach(function (sg) {
+      sg.path = sg.items.filter(function (s) { return s.num; });
+      sg.side = sg.items.filter(function (s) { return s.off && s.lat != null; });
+    });
+    return segs.filter(function (sg) { return sg.items.length; });
+  }
+
+  function renderRoutes(m) {
+    var trip = m.trip;
+    var strip = document.getElementById('map-strip'), view = document.getElementById('map-view');
+    if (!strip || !view) return;
+    var map = null, layer = null, mapEl = null, markers = {};
+
+    function pick() {
+      var hash = location.hash.slice(1).split('/')[0];
+      for (var i = 0; i < trip.days.length; i++) if (trip.days[i].date === hash) return i;
+      if (m.phase === 'during') return m.dayIndex;
+      for (var j = 0; j < trip.days.length; j++) if (trip.days[j].stops) return j;
+      return 0;
+    }
+    function pickSeg(n) { var p = +location.hash.split('/')[1]; return p >= 1 && p <= n ? p - 1 : 0; }
+
+    function pinIcon(cls, text, title) {
+      return L.divIcon({
+        className: '',
+        html: '<div class="trip-pin stop-pin ' + cls + '"><span class="trip-pin-num">' + text + '</span></div>',
+        iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -13]
+      });
+    }
+    function popupFor(s, nums) {
+      return h('div', null,
+        h('p', { class: 'popup-city' }, (nums ? nums + ' · ' : '') + s.name),
+        s.time || s.note ? h('p', { class: 'popup-meta' }, [s.time, s.note].filter(Boolean).join(' · ')) : null,
+        h('p', { class: 'popup-meta' }, h('a', { href: stopUrl(s), target: '_blank', rel: 'noopener' }, 'Open in Google Maps ↗')));
+    }
+
+    function drawMap(place, seg) {
+      if (typeof L === 'undefined') { mapEl.classList.add('map-fallback'); mapEl.textContent = 'The map couldn’t load. The stops are listed below.'; return; }
+      if (!map) {
+        map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true });
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 18
+        }).addTo(map);
+        mapEl.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+        mapEl.addEventListener('mouseleave', function () { map.scrollWheelZoom.disable(); });
+      }
+      if (layer) layer.remove();
+      layer = L.layerGroup().addTo(map);
+      markers = {};
+      var pts = seg.path.map(function (s) { return [s.lat, s.lng]; });
+      if (pts.length > 1) {
+        L.polyline(pts, { color: '#1C1912', weight: 7, opacity: 0.18, lineCap: 'round', lineJoin: 'round' }).addTo(layer);
+        L.polyline(pts, { color: '#B8391F', weight: 3, lineCap: 'round', lineJoin: 'round' }).addTo(layer);
+        // An arrow halfway along each hop shows which way we go.
+        for (var k = 0; k < pts.length - 1; k++) {
+          var a = map.project(pts[k], 10), b = map.project(pts[k + 1], 10);
+          if (a.distanceTo(b) < 2) continue;
+          var ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+          L.marker([(pts[k][0] + pts[k + 1][0]) / 2, (pts[k][1] + pts[k + 1][1]) / 2], {
+            interactive: false, keyboard: false,
+            icon: L.divIcon({ className: '', html: '<div class="path-arrow" style="transform:rotate(' + ang + 'deg)">➤</div>', iconSize: [16, 16], iconAnchor: [8, 8] })
+          }).addTo(layer);
+        }
+      }
+      // One pin per place; a place we pass twice (out from the Airbnb and back) shows both numbers.
+      var pins = [];
+      seg.path.forEach(function (s) {
+        var same = pins.filter(function (p) { return p.s.lat === s.lat && p.s.lng === s.lng; })[0];
+        if (same) same.nums.push(s.num); else pins.push({ s: s, nums: [s.num] });
+      });
+      pins.forEach(function (p) {
+        var label = p.nums.join(',');
+        var mk = L.marker([p.s.lat, p.s.lng], { icon: pinIcon(place + (p.s.maybe ? ' maybe' : '') + (label.length > 2 ? ' wide' : ''), label), title: p.s.name, zIndexOffset: 100 })
+          .addTo(layer).bindPopup(popupFor(p.s, label));
+        p.nums.forEach(function (n) { markers[n] = mk; });
+      });
+      seg.side.forEach(function (s) {
+        markers[s.name] = L.marker([s.lat, s.lng], { icon: pinIcon('side', '◇'), title: s.name }).addTo(layer).bindPopup(popupFor(s));
+      });
+      var all = pts.concat(seg.side.map(function (s) { return [s.lat, s.lng]; }));
+      // Fit the path; a far side trip (Cu Chi, the Mekong) stays off-screen until you zoom out, so the city route stays readable.
+      var fit = pts.length ? pts : all;
+      if (fit.length === 1) map.setView(fit[0], 15);
+      else if (fit.length) map.fitBounds(fit, { padding: [36, 36], maxZoom: 16 });
+      setTimeout(function () { map.invalidateSize(); }, 0);
+    }
+
+    function focusStop(s) {
+      var mk = markers[s.num || s.name];
+      if (!map || !mk) return;
+      map.setView(mk.getLatLng(), Math.max(map.getZoom(), 16));
+      mk.openPopup();
+      mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    function stopRow(s, k, list) {
+      var prev = null;
+      if (s.num) for (var j = k - 1; j >= 0; j--) if (list[j].num) { prev = list[j]; break; }
+      var hop = prev && !(prev.lat === s.lat && prev.lng === s.lng) ? prev : null;
+      return h('li', { class: 'stop' + (s.num ? '' : s.off ? ' stop-side' : ' stop-loose') + (s.maybe ? ' is-maybe' : '') },
+        s.lat != null ? h('button', { type: 'button', class: 'stop-num' + (s.num ? '' : ' none'), 'aria-label': 'Show ' + s.name + ' on the map', onclick: function () { focusStop(s); } }, s.num ? String(s.num) : '◇')
+          : h('span', { class: 'stop-num none' }, '·'),
+        h('div', { class: 'stop-body' },
+          h('p', { class: 'stop-name' }, s.name, s.maybe ? h('span', { class: 'maybe-tag' }, 'maybe') : null,
+            s.who ? h('span', { class: 'stop-who' }, s.who) : null),
+          s.time || s.note ? h('p', { class: 'stop-meta' }, s.time ? h('span', { class: 'stop-time' }, s.time) : null, s.time && s.note ? ' · ' : null, s.note || null) : null),
+        s.lat != null ? h('span', { class: 'stop-links' },
+          h('a', { class: 'stop-link', href: stopUrl(s), target: '_blank', rel: 'noopener', 'aria-label': 'Open ' + s.name + ' in Google Maps' }, 'Maps ↗'),
+          hop ? h('a', { class: 'stop-link', href: dirUrl([hop, s]), target: '_blank', rel: 'noopener', 'aria-label': 'Directions from ' + hop.name + ' to ' + s.name }, 'Route here ↗') : null) : null);
+    }
+
+    function draw() {
+      var i = pick(), day = trip.days[i];
+      var isToday = m.phase === 'during' && day.date === m.today;
+      var segs = daySegments(day), si = pickSeg(segs.length), seg = segs[si];
+      var segPlace = segs.length > 1 && si === 0 && i > 0 ? trip.days[i - 1].place : day.place;
+
+      strip.textContent = '';
+      trip.days.forEach(function (d, j) {
+        strip.appendChild(h('a', {
+          class: 'cal-chip ' + d.place + (j === i ? ' is-selected' : '') + (m.phase === 'during' && d.date === m.today ? ' is-today' : ''),
+          href: '#' + d.date, 'aria-current': j === i ? 'date' : null
+        }, h('span', { class: 'cal-chip-wd' }, weekday(d.date)), h('span', { class: 'cal-chip-d' }, String(parseISO(d.date).getUTCDate()))));
+      });
+      var sel = strip.querySelector('.is-selected');
+      if (sel && sel.scrollIntoView) sel.scrollIntoView({ block: 'nearest', inline: 'center' });
+
+      var prev = trip.days[i - 1], next = trip.days[i + 1];
+      if (map) { map.remove(); map = null; layer = null; }
+      mapEl = seg ? h('div', { id: 'day-map', role: 'region', 'aria-label': 'Map of the stops for ' + fmtDay(day.date) }) : null;
+      view.textContent = '';
+      append(view, [
+        h('div', { class: 'cal-head' },
+          prev ? h('a', { class: 'btn btn-quiet cal-nav', href: '#' + prev.date, 'aria-label': 'Previous day' }, '←') : h('span', { class: 'cal-nav' }),
+          h('div', { class: 'cal-title' },
+            h('div', { class: 'day-head' }, cityChip(trip, day.place, day.place === 'transit' ? (i === trip.days.length - 1 ? 'Departure' : 'In transit') : null),
+              isToday ? h('span', { class: 'stamp' }, 'Today') : null),
+            h('h2', null, 'Day ' + (i + 1) + ' · ' + weekday(day.date) + ' ' + fmtDay(day.date)),
+            h('p', { class: 'muted' }, day.title)),
+          next ? h('a', { class: 'btn btn-quiet cal-nav', href: '#' + next.date, 'aria-label': 'Next day' }, '→') : h('span', { class: 'cal-nav' })),
+        !seg ? h('p', { class: 'muted' }, i === 0 ? 'Travel day — nothing to map.' : 'No stops mapped for this day yet.') : null,
+        segs.length > 1 ? h('div', { class: 'seg-tabs', role: 'tablist' }, segs.map(function (sg, k) {
+          return h('a', { class: 'seg-tab' + (k === si ? ' is-selected' : ''), role: 'tab', 'aria-selected': k === si ? 'true' : 'false', href: '#' + day.date + '/' + (k + 1) },
+            k === 0 ? 'Before the flight' : 'After landing');
+        })) : null,
+        seg ? h('div', { class: 'route-map day-route-map' }, mapEl) : null,
+        seg && seg.path.length > 1 && seg.path.length <= 11 ? h('p', { class: 'btn-row' },
+          h('a', { class: 'btn', href: dirUrl(seg.path), target: '_blank', rel: 'noopener' }, 'Directions for this route ↗')) : null,
+        seg && seg.label ? h('p', { class: 'seg-leg' }, '✈ ' + seg.label) : null,
+        seg ? h('ol', { class: 'stop-list' }, seg.items.filter(function (s) { return !s.off; }).map(stopRow)) : null,
+        seg && seg.side.length ? h('div', { class: 'stop-side-wrap' },
+          h('p', { class: 'eyebrow' }, 'Off the path'),
+          h('ol', { class: 'stop-list' }, seg.side.map(stopRow))) : null,
+        seg ? h('p', { class: 'muted small-print' }, 'Numbers are the order we’ll go in; tap one to zoom to it. Where there are no times, the order is a best guess that keeps travel short. Lines are straight hops, not streets — “Route here” gives real directions from the stop before.') : null
+      ]);
+      if (seg) drawMap(segPlace, seg);
+    }
+
+    window.addEventListener('hashchange', draw);
+    document.addEventListener('keydown', function (e) {
+      if (e.target.closest && e.target.closest('input,textarea')) return;
+      var i = pick();
+      if (e.key === 'ArrowLeft' && i > 0) location.hash = trip.days[i - 1].date;
+      if (e.key === 'ArrowRight' && i < trip.days.length - 1) location.hash = trip.days[i + 1].date;
+    });
+    draw();
+  }
+
   function renderStays(m) {
     var el = document.getElementById('stays');
     if (!el) return;
@@ -746,6 +933,7 @@
     if (page === 'itinerary') renderItinerary(m);
     if (page === 'stays') renderStays(m);
     if (page === 'calendar') renderCalendar(m);
+    if (page === 'map') renderRoutes(m);
   }).catch(fail);
 
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {

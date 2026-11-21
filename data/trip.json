@@ -95,6 +95,23 @@
      "kind": "checkin",
      "fuzzy": true
     }
+   ],
+   "stops": [
+    {
+     "name": "Tân Sơn Nhất airport (SGN)",
+     "lat": 10.818,
+     "lng": 106.6563,
+     "q": "Tan Son Nhat International Airport",
+     "time": "12:58am",
+     "note": "KE479, delayed"
+    },
+    {
+     "name": "Summer Apartment Hotel",
+     "lat": 10.8118,
+     "lng": 106.6705,
+     "q": "Summer Apartment Hotel, 62 Hồng Hà, Ho Chi Minh City",
+     "time": "~2am"
+    }
    ]
   },
   {
@@ -192,6 +209,143 @@
      "note": "Phở Việt Nam, 14 Phạm Hồng Thái — 5 min from the Airbnb, open until 3am.",
      "owner": "jonathan"
     }
+   ],
+   "stops": [
+    {
+     "name": "Summer Apartment Hotel",
+     "lat": 10.8118,
+     "lng": 106.6705,
+     "q": "Summer Apartment Hotel, 62 Hồng Hà, Ho Chi Minh City",
+     "time": "9:45am",
+     "note": "Check out"
+    },
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "time": "~10am",
+     "note": "Drop bags (host OK'd early drop-off)"
+    },
+    {
+     "name": "Coffee + bánh mì: Hòa Mã",
+     "lat": 10.7703,
+     "lng": 106.6818,
+     "q": "Bánh mì Hòa Mã, 53 Cao Thắng, Hồ Chí Minh",
+     "time": "10:25am"
+    },
+    {
+     "name": "Resel bridal appointment",
+     "lat": 10.7764,
+     "lng": 106.6901,
+     "q": "245 Võ Văn Tần, District 3, Ho Chi Minh City",
+     "time": "11am",
+     "who": "Joyce",
+     "off": true,
+     "note": "Joyce, while Jonathan is at the tailor"
+    },
+    {
+     "name": "Nhựt Tailor",
+     "lat": 10.7732,
+     "lng": 106.6983,
+     "q": "Nhựt Tailor, 232 Lê Thánh Tôn, Hồ Chí Minh",
+     "time": "11am",
+     "who": "Jonathan",
+     "note": "Joyce is at Resel meanwhile (◇)"
+    },
+    {
+     "name": "Lunch: Bánh Xèo 46A",
+     "lat": 10.7896,
+     "lng": 106.6913,
+     "q": "Bánh Xèo 46A, 46 Đinh Công Tráng, Hồ Chí Minh",
+     "time": "12:15pm"
+    },
+    {
+     "name": "Coffee: Cộng Cà Phê",
+     "lat": 10.7889,
+     "lng": 106.6908,
+     "q": "Cộng Cà Phê, 274 Hai Bà Trưng, Hồ Chí Minh",
+     "time": "1pm",
+     "note": "Opposite the Pink Church"
+    },
+    {
+     "name": "Huelley Rose",
+     "lat": 10.7838,
+     "lng": 106.6971,
+     "q": "214 Hai Bà Trưng, Tân Định, Quận 1, Hồ Chí Minh",
+     "time": "1:45–3pm",
+     "who": "Joyce",
+     "off": true,
+     "note": "Joyce"
+    },
+    {
+     "name": "Premium Momo Nails & Spa",
+     "time": "3pm",
+     "who": "Joyce + Jonathan",
+     "note": "No address on file yet"
+    },
+    {
+     "name": "Café Apartments",
+     "lat": 10.7737,
+     "lng": 106.7042,
+     "q": "The Cafe Apartment, 42 Nguyễn Huệ, Ho Chi Minh City",
+     "time": "4:45pm",
+     "note": "Meet Andrew; sunset 5:27pm"
+    },
+    {
+     "name": "Nguyễn Huệ to the river",
+     "lat": 10.7716,
+     "lng": 106.7065,
+     "q": "Nguyen Hue Walking Street, Ho Chi Minh City",
+     "time": "5:45pm",
+     "note": "Down to Tôn Đức Thắng and back"
+    },
+    {
+     "name": "Saigon Opera House",
+     "lat": 10.7767,
+     "lng": 106.7032,
+     "q": "Saigon Opera House",
+     "time": "~6:30pm",
+     "note": "On the walk back"
+    },
+    {
+     "name": "Dinner: Bếp Nhà Lục Tỉnh",
+     "lat": 10.7708,
+     "lng": 106.7012,
+     "q": "Bếp Nhà Lục Tỉnh, 37 Nam Kỳ Khởi Nghĩa, Hồ Chí Minh",
+     "time": "7pm",
+     "note": "Booked"
+    },
+    {
+     "name": "Bar 1: Stir",
+     "lat": 10.7817,
+     "lng": 106.7055,
+     "q": "Stir, 136 Lê Thánh Tôn, Hồ Chí Minh",
+     "time": "8:45pm",
+     "note": "1st floor, alley 136 Lê Thánh Tôn"
+    },
+    {
+     "name": "Bar 2: Summer Experiment",
+     "lat": 10.7747,
+     "lng": 106.6981,
+     "q": "Summer Experiment, 77 Lý Tự Trọng, Hồ Chí Minh",
+     "time": "10:20pm"
+    },
+    {
+     "name": "Late phở: Phở Việt Nam",
+     "lat": 10.7713,
+     "lng": 106.6962,
+     "q": "Phở Việt Nam, 14 Phạm Hồng Thái, Hồ Chí Minh",
+     "time": "12:45am",
+     "note": "With all five"
+    },
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "time": "~1:15am"
+    }
    ]
   },
   {
@@ -285,12 +439,184 @@
      "note": "77-79 Lý Tự Trọng (Summer Experiment's building). Live jazz on weekends, fills fast on Sundays: book (+84 833 167 332). 12 min walk home, or Bùi Viện if anyone's still going.",
      "owner": "jonathan"
     }
+   ],
+   "stops": [
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh"
+    },
+    {
+     "name": "Breakfast: Hủ tiếu cá Nam Lợi",
+     "lat": 10.7695,
+     "lng": 106.704,
+     "q": "Hủ tiếu cá Nam Lợi, 43 Tôn Thất Đạm, Hồ Chí Minh",
+     "time": "9:30am"
+    },
+    {
+     "name": "Central Post Office + Notre-Dame",
+     "lat": 10.78,
+     "lng": 106.7,
+     "q": "Saigon Central Post Office",
+     "time": "10:15am"
+    },
+    {
+     "name": "Book Street",
+     "lat": 10.7806,
+     "lng": 106.6997,
+     "q": "Đường sách Nguyễn Văn Bình, Hồ Chí Minh",
+     "time": "10:40am"
+    },
+    {
+     "name": "Coffee: XLIII",
+     "lat": 10.7782,
+     "lng": 106.6985,
+     "q": "XLIII Coffee, 178a Pasteur, Hồ Chí Minh",
+     "time": "11am",
+     "who": "The four"
+    },
+    {
+     "name": "Lunch: Mặn Mòi",
+     "lat": 10.7796,
+     "lng": 106.6918,
+     "q": "Mặn Mòi, 34 Võ Văn Tần, Hồ Chí Minh",
+     "time": "11:45am",
+     "who": "The four"
+    },
+    {
+     "name": "War Remnants Museum",
+     "lat": 10.7794,
+     "lng": 106.6923,
+     "q": "War Remnants Museum, Ho Chi Minh City",
+     "time": "1:30pm",
+     "who": "The four",
+     "note": "Cash only, 40k VND"
+    },
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "time": "3:30pm",
+     "note": "Everyone regroups, rest"
+    },
+    {
+     "name": "Sunset: Social Club Rooftop",
+     "lat": 10.782,
+     "lng": 106.6971,
+     "q": "Social Club Rooftop, Hôtel des Arts Saigon",
+     "time": "5:10pm",
+     "note": "24th floor, Hôtel des Arts"
+    },
+    {
+     "name": "Dinner: Ốc Đào",
+     "lat": 10.7653,
+     "lng": 106.6877,
+     "q": "Ốc Đào, 212B Nguyễn Trãi, Hồ Chí Minh",
+     "time": "6:30pm",
+     "note": "Cash only"
+    },
+    {
+     "name": "Bar 1: The Enigma Mansion",
+     "lat": 10.7831,
+     "lng": 106.7051,
+     "q": "The Enigma Mansion, 5H Tôn Đức Thắng, Hồ Chí Minh",
+     "time": "8:15pm"
+    },
+    {
+     "name": "Bar 2: CỘI Jazz",
+     "lat": 10.7747,
+     "lng": 106.6981,
+     "q": "CỘI Jazz, 77 Lý Tự Trọng, Hồ Chí Minh",
+     "time": "9:45pm"
+    },
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "time": "~11pm"
+    },
+    {
+     "name": "Joyce: back to the Airbnb to get ready",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "time": "11am",
+     "who": "Joyce",
+     "off": true,
+     "note": "Leaves for District 7 by 11:30"
+    },
+    {
+     "name": "Joyce's shoot at RINTRAN",
+     "lat": 10.7424,
+     "lng": 106.722,
+     "q": "89A Lý Phục Man, Tân Thuận, Hồ Chí Minh",
+     "time": "12–3pm",
+     "who": "Joyce",
+     "off": true,
+     "note": "District 7, 20–25 min by Grab"
+    },
+    {
+     "name": "Bà Thiên Hậu Temple (Chinatown)",
+     "lat": 10.7536,
+     "lng": 106.6612,
+     "q": "Ba Thien Hau Temple, 710 Nguyễn Trãi, Ho Chi Minh City",
+     "maybe": true,
+     "off": true,
+     "note": "On the Notion list, not in today's plan"
+    },
+    {
+     "name": "Củ Chi Tunnels",
+     "lat": 11.063,
+     "lng": 106.5291,
+     "q": "Cu Chi Tunnels",
+     "maybe": true,
+     "off": true,
+     "note": "On the Notion list; about 1.5–2 hours away"
+    }
    ]
   },
   {
    "date": "2026-11-23",
    "place": "hcm",
-   "title": "HCMC day 3"
+   "title": "HCMC day 3",
+   "stops": [
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh"
+    },
+    {
+     "name": "Bến Thành Market",
+     "lat": 10.7725,
+     "lng": 106.698,
+     "q": "Ben Thanh Market, Ho Chi Minh City",
+     "time": "daytime"
+    },
+    {
+     "name": "Boutiques and cafés",
+     "time": "daytime",
+     "note": "None picked yet"
+    },
+    {
+     "name": "Cheap Michelin dinner",
+     "time": "dinner",
+     "maybe": true,
+     "note": "None picked yet"
+    },
+    {
+     "name": "Mekong Delta day trip (Mỹ Tho)",
+     "lat": 10.36,
+     "lng": 106.36,
+     "q": "My Tho, Tien Giang",
+     "maybe": true,
+     "off": true,
+     "note": "About 2 hours away; instead of the city plans"
+    }
+   ]
   },
   {
    "date": "2026-11-24",
@@ -306,23 +632,179 @@
      "kind": "fly",
      "fuzzy": true
     }
+   ],
+   "stops": [
+    {
+     "name": "HCMC Airbnb",
+     "lat": 10.7699,
+     "lng": 106.6987,
+     "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+     "note": "Check out by 11am"
+    },
+    {
+     "name": "Tân Sơn Nhất airport (SGN)",
+     "lat": 10.818,
+     "lng": 106.6563,
+     "q": "Tan Son Nhat International Airport",
+     "time": "~10:15am"
+    },
+    {
+     "leg": "Fly VJ166 · 12:20pm → 2:30pm"
+    },
+    {
+     "name": "Nội Bài airport (HAN)",
+     "lat": 21.2189,
+     "lng": 105.8045,
+     "q": "Noi Bai International Airport",
+     "time": "2:30pm"
+    },
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "time": "from 2pm",
+     "note": "Check in from 2pm"
+    },
+    {
+     "name": "Hoàn Kiếm Lake (Sword Lake)",
+     "lat": 21.0288,
+     "lng": 105.8525,
+     "q": "Hoan Kiem Lake, Hanoi",
+     "maybe": true
+    },
+    {
+     "name": "Egg coffee at Café Giảng",
+     "lat": 21.0336,
+     "lng": 105.8546,
+     "q": "Cafe Giang, 39 Nguyễn Hữu Huân, Hà Nội",
+     "maybe": true,
+     "note": "Suggested spot: where egg coffee was invented"
+    }
    ]
   },
   {
    "date": "2026-11-25",
    "place": "hanoi",
-   "title": "Hanoi day 1 — Old Quarter"
+   "title": "Hanoi day 1 — Old Quarter",
+   "stops": [
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội"
+    },
+    {
+     "name": "St. Joseph's Cathedral",
+     "lat": 21.0286,
+     "lng": 105.8489,
+     "q": "St. Joseph's Cathedral, Hanoi"
+    },
+    {
+     "name": "Train Street",
+     "lat": 21.031,
+     "lng": 105.8448,
+     "q": "Hanoi Train Street, Phùng Hưng"
+    },
+    {
+     "name": "Temple of Literature",
+     "lat": 21.0288,
+     "lng": 105.836,
+     "q": "Temple of Literature, Hanoi"
+    },
+    {
+     "name": "Camille bridal showroom",
+     "lat": 21.0189,
+     "lng": 105.8274,
+     "q": "45 Nguyễn Hy Quang, Đống Đa, Hà Nội",
+     "note": "Open 9am–8pm"
+    },
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "note": "Old Quarter, for the street food tour"
+    },
+    {
+     "name": "Street food tour",
+     "time": "dinner",
+     "note": "Old Quarter; no tour picked yet"
+    }
+   ]
   },
   {
    "date": "2026-11-26",
    "place": "ninhbinh",
    "title": "Day trip to Ninh Binh",
-   "tip": "Transport to Ninh Binh isn't decided yet (tour, driver or train)."
+   "tip": "Transport to Ninh Binh isn't decided yet (tour, driver or train).",
+   "stops": [
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "time": "early"
+    },
+    {
+     "name": "Boat tour (Tam Cốc)",
+     "lat": 20.216,
+     "lng": 105.9326,
+     "q": "Tam Coc, Ninh Binh",
+     "note": "Tam Cốc shown; Tràng An is the other usual one, not decided"
+    },
+    {
+     "name": "Hang Múa (Mua Cave) & rice paddies",
+     "lat": 20.2287,
+     "lng": 105.9352,
+     "q": "Hang Mua, Ninh Binh"
+    },
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "time": "evening"
+    }
+   ]
   },
   {
    "date": "2026-11-27",
    "place": "hanoi",
-   "title": "Hanoi day 2 — French Quarter & West Lake"
+   "title": "Hanoi day 2 — French Quarter & West Lake",
+   "stops": [
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội"
+    },
+    {
+     "name": "Hanoi Opera House",
+     "lat": 21.0242,
+     "lng": 105.8578,
+     "q": "Hanoi Opera House",
+     "note": "French Quarter"
+    },
+    {
+     "name": "Trấn Quốc Pagoda",
+     "lat": 21.0479,
+     "lng": 105.8368,
+     "q": "Tran Quoc Pagoda, Hanoi"
+    },
+    {
+     "name": "West Lake (Hồ Tây)",
+     "lat": 21.058,
+     "lng": 105.814,
+     "q": "West Lake, Hanoi"
+    },
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội"
+    }
+   ]
   },
   {
    "date": "2026-11-28",
@@ -337,6 +819,23 @@
      "note": "suggested · Joyce + Jonathan",
      "kind": "fly",
      "fuzzy": true
+    }
+   ],
+   "stops": [
+    {
+     "name": "Hanoi Airbnb",
+     "lat": 21.0362,
+     "lng": 105.8494,
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "time": "~4:45am",
+     "note": "Joyce + Jonathan"
+    },
+    {
+     "name": "Nội Bài airport (HAN)",
+     "lat": 21.2189,
+     "lng": 105.8045,
+     "q": "Noi Bai International Airport",
+     "time": "7:35am flight"
     }
    ]
   }
@@ -362,8 +861,8 @@
    "address": "142bis Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
    "mapsQuery": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
    "mapsUrl": "https://maps.app.goo.gl/3NwLJ49pgSFaiRDC6",
-  "listingUrl": "https://www.airbnb.com/rooms/1102788665902427915",
-  "listingName": "Saigon Ancient Legacy 1975House – Ben Thanh Center",
+   "listingUrl": "https://www.airbnb.com/rooms/1102788665902427915",
+   "listingName": "Saigon Ancient Legacy 1975House – Ben Thanh Center",
    "floor": "Second floor",
    "guideUrl": "https://leplaces.blogspot.com/2025/07/142%20Acient%20House.html",
    "checkIn": "2026-11-21",
@@ -394,5 +893,6 @@
  ],
  "departAt": "2026-11-19T11:10:00-06:00",
  "_departAt": "First wheels-up: Jonathan's KE038 from Chicago O'Hare. The countdown runs to this instant.",
- "_events": "days[].events: suggested or derived times shown on the Hours page. time is HH:MM Vietnam time; values past 24:00 mean after midnight. fuzzy: true draws it as an estimate."
+ "_events": "days[].events: suggested or derived times shown on the Hours page. time is HH:MM Vietnam time; values past 24:00 mean after midnight. fuzzy: true draws it as an estimate.",
+ "_stops": "days[].stops: places for the Map page, in the order we visit them. Stops with lat/lng are pinned and joined by the path; off: true pins it without joining the path (side trips, one person's errand); maybe: true marks it as undecided; a stop without lat/lng is listed but not pinned; {\"leg\": \"...\"} splits the day (e.g. a flight) so each part gets its own map view. Order is our best guess where Notion gives no times."
 }
