@@ -727,11 +727,35 @@
 
   // ---------- map page: each day's stops in order ----------
   function stopUrl(s) { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s.q || s.name); }
-  function dirUrl(path) {
+  function dirUrl(path, mode) {
     var q = path.map(function (s) { return s.q || (s.lat + ',' + s.lng); });
     var u = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(q[0]) + '&destination=' + encodeURIComponent(q[q.length - 1]);
     if (q.length > 2) u += '&waypoints=' + encodeURIComponent(q.slice(1, -1).join('|'));
+    if (mode) u += '&travelmode=' + mode;
     return u;
+  }
+  function fmtMins(n) {
+    if (n < 60) return n + ' min';
+    var hr = Math.floor(n / 60), mn = n % 60;
+    return hr + ' hr' + (mn ? ' ' + mn + ' min' : '');
+  }
+  // How we get to a stop from the one before: a time quoted in the plans ("via") wins over the computed "hop".
+  function travelTo(s) {
+    if (s.via) {
+      var nums = (s.via.match(/\d+/g) || []).map(Number);
+      return {
+        mode: /^walk/i.test(s.via) ? 'walk' : 'grab',
+        text: s.via.replace(/,\s*/, ' · '),
+        min: nums.length ? Math.round((nums[0] + nums[nums.length - 1]) / 2) : /next door/i.test(s.via) ? 1 : 0
+      };
+    }
+    if (!s.hop) return null;
+    var hp = s.hop, far = hp.km >= 50;
+    return {
+      mode: hp.mode,
+      min: hp.min,
+      text: (hp.mode === 'walk' ? 'Walk · ' + fmtMins(hp.min) : (far ? 'Drive · ~' : 'Grab · ~') + fmtMins(hp.min)) + ' · ' + hp.km + ' km'
+    };
   }
   // Split a day's stops at {leg} markers and number the stops on the path (1, 2, 3 … across the whole day).
   function daySegments(day) {
@@ -837,10 +861,7 @@
       mk.openPopup();
       mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    function stopRow(s, k, list) {
-      var prev = null;
-      if (s.num) for (var j = k - 1; j >= 0; j--) if (list[j].num) { prev = list[j]; break; }
-      var hop = prev && !(prev.lat === s.lat && prev.lng === s.lng) ? prev : null;
+    function stopRow(s) {
       return h('li', { class: 'stop' + (s.num ? '' : s.off ? ' stop-side' : ' stop-loose') + (s.maybe ? ' is-maybe' : '') },
         s.lat != null ? h('button', { type: 'button', class: 'stop-num' + (s.num ? '' : ' none'), 'aria-label': 'Show ' + s.name + ' on the map', onclick: function () { focusStop(s); } }, s.num ? String(s.num) : '◇')
           : h('span', { class: 'stop-num none' }, '·'),
@@ -848,9 +869,41 @@
           h('p', { class: 'stop-name' }, s.name, s.maybe ? h('span', { class: 'maybe-tag' }, 'maybe') : null,
             s.who ? h('span', { class: 'stop-who' }, s.who) : null),
           s.time || s.note ? h('p', { class: 'stop-meta' }, s.time ? h('span', { class: 'stop-time' }, s.time) : null, s.time && s.note ? ' · ' : null, s.note || null) : null),
-        s.lat != null ? h('span', { class: 'stop-links' },
-          h('a', { class: 'stop-link', href: stopUrl(s), target: '_blank', rel: 'noopener', 'aria-label': 'Open ' + s.name + ' in Google Maps' }, 'Maps ↗'),
-          hop ? h('a', { class: 'stop-link', href: dirUrl([hop, s]), target: '_blank', rel: 'noopener', 'aria-label': 'Directions from ' + hop.name + ' to ' + s.name }, 'Route here ↗') : null) : null);
+        s.lat != null ? h('a', { class: 'stop-link', href: stopUrl(s), target: '_blank', rel: 'noopener', 'aria-label': 'Open ' + s.name + ' in Google Maps' }, 'Maps ↗') : null);
+    }
+    // The connector above a stop: how long it takes to get there from the stop before, and directions.
+    function hopRow(from, to) {
+      var tr = travelTo(to);
+      var gmode = tr ? (tr.mode === 'walk' ? 'walking' : 'driving') : null;
+      return h('li', { class: 'stop-hop' + (tr ? ' hop-' + tr.mode : '') },
+        h('span', { class: 'hop-icon', 'aria-hidden': 'true' }, tr ? (tr.mode === 'walk' ? '🚶' : '🚕') : '↓'),
+        h('span', { class: 'hop-text' }, tr ? tr.text : 'Travel time unknown'),
+        // No time means a stop without an address sits in between, so route from wherever you are.
+        h('a', { class: 'stop-link', href: tr ? dirUrl([from, to], gmode) : 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(to.q || to.name), target: '_blank', rel: 'noopener', 'aria-label': 'Directions to ' + to.name }, 'Directions ↗'));
+    }
+    function stopRows(items) {
+      var out = [], prev = null;
+      items.forEach(function (s) {
+        if (s.num) {
+          if (prev && !(prev.lat === s.lat && prev.lng === s.lng)) out.push(hopRow(prev, s));
+          prev = s;
+        }
+        out.push(stopRow(s));
+      });
+      return out;
+    }
+    function travelSummary(seg) {
+      var walk = 0, ride = 0, nw = 0, nr = 0;
+      seg.path.forEach(function (s) {
+        var tr = travelTo(s);
+        if (!tr) return;
+        if (tr.mode === 'walk') { walk += tr.min; nw++; } else { ride += tr.min; nr++; }
+      });
+      if (!nw && !nr) return null;
+      var parts = [];
+      if (nr) parts.push('🚕 ~' + fmtMins(ride) + ' in ' + nr + (nr === 1 ? ' ride' : ' rides'));
+      if (nw) parts.push('🚶 ~' + fmtMins(walk) + ' walking');
+      return h('p', { class: 'travel-sum' }, h('span', { class: 'logi-tag' }, 'Getting around'), h('span', null, parts.join(' · ')));
     }
 
     function draw() {
@@ -891,11 +944,12 @@
         seg && seg.path.length > 1 && seg.path.length <= 11 ? h('p', { class: 'btn-row' },
           h('a', { class: 'btn', href: dirUrl(seg.path), target: '_blank', rel: 'noopener' }, 'Directions for this route ↗')) : null,
         seg && seg.label ? h('p', { class: 'seg-leg' }, '✈ ' + seg.label) : null,
-        seg ? h('ol', { class: 'stop-list' }, seg.items.filter(function (s) { return !s.off; }).map(stopRow)) : null,
+        seg ? travelSummary(seg) : null,
+        seg ? h('ol', { class: 'stop-list' }, stopRows(seg.items.filter(function (s) { return !s.off; }))) : null,
         seg && seg.side.length ? h('div', { class: 'stop-side-wrap' },
           h('p', { class: 'eyebrow' }, 'Off the path'),
-          h('ol', { class: 'stop-list' }, seg.side.map(stopRow))) : null,
-        seg ? h('p', { class: 'muted small-print' }, 'Numbers are the order we’ll go in; tap one to zoom to it. Where there are no times, the order is a best guess that keeps travel short. Lines are straight hops, not streets — “Route here” gives real directions from the stop before.') : null
+          h('ol', { class: 'stop-list' }, seg.side.map(function (s) { return stopRow(s); }))) : null,
+        seg ? h('p', { class: 'muted small-print' }, 'Numbers are the order we’ll go in; tap one to zoom to it. Where there are no times, the order is a best guess that keeps travel short. Travel times come from the plans where they give one, otherwise from OpenStreetMap routes (Grab times padded for traffic). Lines on the map are straight hops; “Directions” gives the real route.') : null
       ]);
       if (seg) drawMap(segPlace, seg);
     }

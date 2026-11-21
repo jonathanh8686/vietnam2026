@@ -110,7 +110,12 @@
      "lat": 10.8118,
      "lng": 106.6705,
      "q": "Summer Apartment Hotel, 62 Hồng Hà, Ho Chi Minh City",
-     "time": "~2am"
+     "time": "~2am",
+     "hop": {
+      "mode": "grab",
+      "min": 17,
+      "km": 4.2
+     }
     }
    ]
   },
@@ -225,14 +230,16 @@
      "lng": 106.6987,
      "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
      "time": "~10am",
-     "note": "Drop bags (host OK'd early drop-off)"
+     "note": "Drop bags (host OK'd early drop-off)",
+     "via": "Grab, 25–35 min"
     },
     {
      "name": "Coffee + bánh mì: Hòa Mã",
      "lat": 10.7703,
      "lng": 106.6818,
      "q": "Bánh mì Hòa Mã, 53 Cao Thắng, Hồ Chí Minh",
-     "time": "10:25am"
+     "time": "10:25am",
+     "via": "Grab, 10–15 min"
     },
     {
      "name": "Resel bridal appointment",
@@ -251,14 +258,16 @@
      "q": "Nhựt Tailor, 232 Lê Thánh Tôn, Hồ Chí Minh",
      "time": "11am",
      "who": "Jonathan",
-     "note": "Joyce is at Resel meanwhile (◇)"
+     "note": "Joyce is at Resel meanwhile (◇)",
+     "via": "Grab, ~10 min"
     },
     {
      "name": "Lunch: Bánh Xèo 46A",
      "lat": 10.7896,
      "lng": 106.6913,
      "q": "Bánh Xèo 46A, 46 Đinh Công Tráng, Hồ Chí Minh",
-     "time": "12:15pm"
+     "time": "12:15pm",
+     "via": "Grab, 10–15 min"
     },
     {
      "name": "Coffee: Cộng Cà Phê",
@@ -266,7 +275,12 @@
      "lng": 106.6908,
      "q": "Cộng Cà Phê, 274 Hai Bà Trưng, Hồ Chí Minh",
      "time": "1pm",
-     "note": "Opposite the Pink Church"
+     "note": "Opposite the Pink Church",
+     "hop": {
+      "mode": "walk",
+      "min": 2,
+      "km": 0.1
+     }
     },
     {
      "name": "Huelley Rose",
@@ -298,7 +312,12 @@
      "lng": 106.7065,
      "q": "Nguyen Hue Walking Street, Ho Chi Minh City",
      "time": "5:45pm",
-     "note": "Down to Tôn Đức Thắng and back"
+     "note": "Down to Tôn Đức Thắng and back",
+     "hop": {
+      "mode": "walk",
+      "min": 6,
+      "km": 0.4
+     }
     },
     {
      "name": "Saigon Opera House",
@@ -306,7 +325,12 @@
      "lng": 106.7032,
      "q": "Saigon Opera House",
      "time": "~6:30pm",
-     "note": "On the walk back"
+     "note": "On the walk back",
+     "hop": {
+      "mode": "walk",
+      "min": 12,
+      "km": 0.9
+     }
     },
     {
      "name": "Dinner: Bếp Nhà Lục Tỉnh",
@@ -314,7 +338,12 @@
      "lng": 106.7012,
      "q": "Bếp Nhà Lục Tỉnh, 37 Nam Kỳ Khởi Nghĩa, Hồ Chí Minh",
      "time": "7pm",
-     "note": "Booked"
+     "note": "Booked",
+     "hop": {
+      "mode": "walk",
+      "min": 13,
+      "km": 0.9
+     }
     },
     {
      "name": "Bar 1: Stir",
@@ -322,14 +351,24 @@
      "lng": 106.7055,
      "q": "Stir, 136 Lê Thánh Tôn, Hồ Chí Minh",
      "time": "8:45pm",
-     "note": "1st floor, alley 136 Lê Thánh Tôn"
+     "note": "1st floor, alley 136 Lê Thánh Tôn",
+     "hop": {
+      "mode": "grab",
+      "min": 8,
+      "km": 2.0
+     }
     },
     {
      "name": "Bar 2: Summer Experiment",
      "lat": 10.7747,
      "lng": 106.6981,
      "q": "Summer Experiment, 77 Lý Tự Trọng, Hồ Chí Minh",
-     "time": "10:20pm"
+     "time": "10:20pm",
+     "hop": {
+      "mode": "grab",
+      "min": 7,
+      "km": 1.5
+     }
     },
     {
      "name": "Late phở: Phở Việt Nam",
@@ -337,14 +376,20 @@
      "lng": 106.6962,
      "q": "Phở Việt Nam, 14 Phạm Hồng Thái, Hồ Chí Minh",
      "time": "12:45am",
-     "note": "With all five"
+     "note": "With all five",
+     "hop": {
+      "mode": "walk",
+      "min": 8,
+      "km": 0.6
+     }
     },
     {
      "name": "HCMC Airbnb",
      "lat": 10.7699,
      "lng": 106.6987,
      "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
-     "time": "~1:15am"
+     "time": "~1:15am",
+     "via": "Walk, ~5 min"
     }
    ]
   },
@@ -452,21 +497,24 @@
      "lat": 10.7695,
      "lng": 106.704,
      "q": "Hủ tiếu cá Nam Lợi, 43 Tôn Thất Đạm, Hồ Chí Minh",
-     "time": "9:30am"
+     "time": "9:30am",
+     "via": "Walk, ~10 min"
     },
     {
      "name": "Central Post Office + Notre-Dame",
      "lat": 10.78,
      "lng": 106.7,
      "q": "Saigon Central Post Office",
-     "time": "10:15am"
+     "time": "10:15am",
+     "via": "Grab, ~8 min"
     },
     {
      "name": "Book Street",
      "lat": 10.7806,
      "lng": 106.6997,
      "q": "Đường sách Nguyễn Văn Bình, Hồ Chí Minh",
-     "time": "10:40am"
+     "time": "10:40am",
+     "via": "Walk, next door"
     },
     {
      "name": "Coffee: XLIII",
@@ -474,7 +522,12 @@
      "lng": 106.6985,
      "q": "XLIII Coffee, 178a Pasteur, Hồ Chí Minh",
      "time": "11am",
-     "who": "The four"
+     "who": "The four",
+     "hop": {
+      "mode": "walk",
+      "min": 6,
+      "km": 0.5
+     }
     },
     {
      "name": "Lunch: Mặn Mòi",
@@ -482,7 +535,8 @@
      "lng": 106.6918,
      "q": "Mặn Mòi, 34 Võ Văn Tần, Hồ Chí Minh",
      "time": "11:45am",
-     "who": "The four"
+     "who": "The four",
+     "via": "Walk, ~8 min"
     },
     {
      "name": "War Remnants Museum",
@@ -491,7 +545,8 @@
      "q": "War Remnants Museum, Ho Chi Minh City",
      "time": "1:30pm",
      "who": "The four",
-     "note": "Cash only, 40k VND"
+     "note": "Cash only, 40k VND",
+     "via": "Walk, next door"
     },
     {
      "name": "HCMC Airbnb",
@@ -499,7 +554,12 @@
      "lng": 106.6987,
      "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
      "time": "3:30pm",
-     "note": "Everyone regroups, rest"
+     "note": "Everyone regroups, rest",
+     "hop": {
+      "mode": "grab",
+      "min": 9,
+      "km": 2.8
+     }
     },
     {
      "name": "Sunset: Social Club Rooftop",
@@ -507,7 +567,12 @@
      "lng": 106.6971,
      "q": "Social Club Rooftop, Hôtel des Arts Saigon",
      "time": "5:10pm",
-     "note": "24th floor, Hôtel des Arts"
+     "note": "24th floor, Hôtel des Arts",
+     "hop": {
+      "mode": "grab",
+      "min": 7,
+      "km": 1.9
+     }
     },
     {
      "name": "Dinner: Ốc Đào",
@@ -515,28 +580,40 @@
      "lng": 106.6877,
      "q": "Ốc Đào, 212B Nguyễn Trãi, Hồ Chí Minh",
      "time": "6:30pm",
-     "note": "Cash only"
+     "note": "Cash only",
+     "hop": {
+      "mode": "grab",
+      "min": 10,
+      "km": 3.0
+     }
     },
     {
      "name": "Bar 1: The Enigma Mansion",
      "lat": 10.7831,
      "lng": 106.7051,
      "q": "The Enigma Mansion, 5H Tôn Đức Thắng, Hồ Chí Minh",
-     "time": "8:15pm"
+     "time": "8:15pm",
+     "via": "Grab, ~10 min"
     },
     {
      "name": "Bar 2: CỘI Jazz",
      "lat": 10.7747,
      "lng": 106.6981,
      "q": "CỘI Jazz, 77 Lý Tự Trọng, Hồ Chí Minh",
-     "time": "9:45pm"
+     "time": "9:45pm",
+     "hop": {
+      "mode": "grab",
+      "min": 7,
+      "km": 1.8
+     }
     },
     {
      "name": "HCMC Airbnb",
      "lat": 10.7699,
      "lng": 106.6987,
      "q": "142 Lê Thị Hồng Gấm, Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
-     "time": "~11pm"
+     "time": "~11pm",
+     "via": "Walk, ~12 min"
     },
     {
      "name": "Joyce: back to the Airbnb to get ready",
@@ -556,7 +633,8 @@
      "time": "12–3pm",
      "who": "Joyce",
      "off": true,
-     "note": "District 7, 20–25 min by Grab"
+     "note": "District 7, 20–25 min by Grab",
+     "via": "Grab, 20–25 min"
     },
     {
      "name": "Bà Thiên Hậu Temple (Chinatown)",
@@ -594,7 +672,12 @@
      "lat": 10.7725,
      "lng": 106.698,
      "q": "Ben Thanh Market, Ho Chi Minh City",
-     "time": "daytime"
+     "time": "daytime",
+     "hop": {
+      "mode": "walk",
+      "min": 5,
+      "km": 0.4
+     }
     },
     {
      "name": "Boutiques and cafés",
@@ -646,7 +729,12 @@
      "lat": 10.818,
      "lng": 106.6563,
      "q": "Tan Son Nhat International Airport",
-     "time": "~10:15am"
+     "time": "~10:15am",
+     "hop": {
+      "mode": "grab",
+      "min": 25,
+      "km": 8.6
+     }
     },
     {
      "leg": "Fly VJ166 · 12:20pm → 2:30pm"
@@ -664,14 +752,24 @@
      "lng": 105.8494,
      "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
      "time": "from 2pm",
-     "note": "Check in from 2pm"
+     "note": "Check in from 2pm",
+     "hop": {
+      "mode": "grab",
+      "min": 40,
+      "km": 25.6
+     }
     },
     {
      "name": "Hoàn Kiếm Lake (Sword Lake)",
      "lat": 21.0288,
      "lng": 105.8525,
      "q": "Hoan Kiem Lake, Hanoi",
-     "maybe": true
+     "maybe": true,
+     "hop": {
+      "mode": "walk",
+      "min": 12,
+      "km": 0.9
+     }
     },
     {
      "name": "Egg coffee at Café Giảng",
@@ -679,7 +777,12 @@
      "lng": 105.8546,
      "q": "Cafe Giang, 39 Nguyễn Hữu Huân, Hà Nội",
      "maybe": true,
-     "note": "Suggested spot: where egg coffee was invented"
+     "note": "Suggested spot: where egg coffee was invented",
+     "hop": {
+      "mode": "walk",
+      "min": 12,
+      "km": 0.9
+     }
     }
    ]
   },
@@ -698,33 +801,58 @@
      "name": "St. Joseph's Cathedral",
      "lat": 21.0286,
      "lng": 105.8489,
-     "q": "St. Joseph's Cathedral, Hanoi"
+     "q": "St. Joseph's Cathedral, Hanoi",
+     "hop": {
+      "mode": "walk",
+      "min": 14,
+      "km": 1.1
+     }
     },
     {
      "name": "Train Street",
      "lat": 21.031,
      "lng": 105.8448,
-     "q": "Hanoi Train Street, Phùng Hưng"
+     "q": "Hanoi Train Street, Phùng Hưng",
+     "hop": {
+      "mode": "walk",
+      "min": 13,
+      "km": 1.0
+     }
     },
     {
      "name": "Temple of Literature",
      "lat": 21.0288,
      "lng": 105.836,
-     "q": "Temple of Literature, Hanoi"
+     "q": "Temple of Literature, Hanoi",
+     "hop": {
+      "mode": "grab",
+      "min": 7,
+      "km": 1.9
+     }
     },
     {
      "name": "Camille bridal showroom",
      "lat": 21.0189,
      "lng": 105.8274,
      "q": "45 Nguyễn Hy Quang, Đống Đa, Hà Nội",
-     "note": "Open 9am–8pm"
+     "note": "Open 9am–8pm",
+     "hop": {
+      "mode": "grab",
+      "min": 7,
+      "km": 1.9
+     }
     },
     {
      "name": "Hanoi Airbnb",
      "lat": 21.0362,
      "lng": 105.8494,
      "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
-     "note": "Old Quarter, for the street food tour"
+     "note": "Old Quarter, for the street food tour",
+     "hop": {
+      "mode": "grab",
+      "min": 14,
+      "km": 4.8
+     }
     },
     {
      "name": "Street food tour",
@@ -751,20 +879,35 @@
      "lat": 20.216,
      "lng": 105.9326,
      "q": "Tam Coc, Ninh Binh",
-     "note": "Tam Cốc shown; Tràng An is the other usual one, not decided"
+     "note": "Tam Cốc shown; Tràng An is the other usual one, not decided",
+     "hop": {
+      "mode": "grab",
+      "min": 115,
+      "km": 102.3
+     }
     },
     {
      "name": "Hang Múa (Mua Cave) & rice paddies",
      "lat": 20.2287,
      "lng": 105.9352,
-     "q": "Hang Mua, Ninh Binh"
+     "q": "Hang Mua, Ninh Binh",
+     "hop": {
+      "mode": "grab",
+      "min": 20,
+      "km": 5.4
+     }
     },
     {
      "name": "Hanoi Airbnb",
      "lat": 21.0362,
      "lng": 105.8494,
      "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
-     "time": "evening"
+     "time": "evening",
+     "hop": {
+      "mode": "grab",
+      "min": 120,
+      "km": 97.7
+     }
     }
    ]
   },
@@ -784,25 +927,45 @@
      "lat": 21.0242,
      "lng": 105.8578,
      "q": "Hanoi Opera House",
-     "note": "French Quarter"
+     "note": "French Quarter",
+     "hop": {
+      "mode": "grab",
+      "min": 10,
+      "km": 2.2
+     }
     },
     {
      "name": "Trấn Quốc Pagoda",
      "lat": 21.0479,
      "lng": 105.8368,
-     "q": "Tran Quoc Pagoda, Hanoi"
+     "q": "Tran Quoc Pagoda, Hanoi",
+     "hop": {
+      "mode": "grab",
+      "min": 20,
+      "km": 7.1
+     }
     },
     {
      "name": "West Lake (Hồ Tây)",
      "lat": 21.058,
      "lng": 105.814,
-     "q": "West Lake, Hanoi"
+     "q": "West Lake, Hanoi",
+     "hop": {
+      "mode": "grab",
+      "min": 13,
+      "km": 4.1
+     }
     },
     {
      "name": "Hanoi Airbnb",
      "lat": 21.0362,
      "lng": 105.8494,
-     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội"
+     "q": "3 Phố Hàng Cá, Hoàn Kiếm, Hà Nội",
+     "hop": {
+      "mode": "grab",
+      "min": 18,
+      "km": 5.7
+     }
     }
    ]
   },
@@ -835,7 +998,12 @@
      "lat": 21.2189,
      "lng": 105.8045,
      "q": "Noi Bai International Airport",
-     "time": "7:35am flight"
+     "time": "7:35am flight",
+     "hop": {
+      "mode": "grab",
+      "min": 40,
+      "km": 24.9
+     }
     }
    ]
   }
