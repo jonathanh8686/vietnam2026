@@ -122,6 +122,13 @@
      "owner": "jonathan"
     },
     {
+     "time": "11:00",
+     "end": "11:55",
+     "label": "Jonathan: Nhựt Tailor",
+     "note": "While Joyce is at Resel. 232 Lê Thánh Tôn, by Bến Thành Market — ~10-min Grab from Hòa Mã. Then ~10–15-min Grab to Bánh Xèo 46A to meet Joyce at 12:15.",
+     "owner": "jonathan"
+    },
+    {
      "time": "12:15",
      "end": "13:00",
      "label": "Lunch: Bánh Xèo 46A",
@@ -142,13 +149,6 @@
      "note": "Everyone's in by ~3:15 (Andrew Grabs straight from SGN). Shower, cool off, cap any nap at 30–45 min.",
      "owner": "jonathan",
      "fuzzy": true
-    },
-    {
-     "time": "15:30",
-     "end": "16:30",
-     "label": "Nhựt Tailor (Jonathan)",
-     "note": "232 Lê Thánh Tôn, by Bến Thành Market — about a 12-min walk from the Airbnb. Open daily ~8am–7pm. From there it's ~10 min on foot to the Café Apartments.",
-     "owner": "jonathan"
     },
     {
      "time": "16:45",
